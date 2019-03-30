@@ -78,6 +78,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF7BD616224FF08F00BF79DF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF83646F224FC7A0001A30B7 /* ViewController.h */,
+				EF836470224FC7A0001A30B7 /* ViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EF7BD617224FF0C100BF79DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF836472224FC7A0001A30B7 /* Main.storyboard */,
+				EF836477224FC7A2001A30B7 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF7BD618224FF0D900BF79DF /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		EF836460224FC7A0001A30B7 = {
 			isa = PBXGroup;
 			children = (
@@ -101,13 +126,12 @@
 		EF83646B224FC7A0001A30B7 /* Movito */ = {
 			isa = PBXGroup;
 			children = (
+				EF7BD618224FF0D900BF79DF /* Presenters */,
+				EF7BD617224FF0C100BF79DF /* Views */,
+				EF7BD616224FF08F00BF79DF /* View Controllers */,
 				EF83646C224FC7A0001A30B7 /* AppDelegate.h */,
 				EF83646D224FC7A0001A30B7 /* AppDelegate.m */,
-				EF83646F224FC7A0001A30B7 /* ViewController.h */,
-				EF836470224FC7A0001A30B7 /* ViewController.m */,
-				EF836472224FC7A0001A30B7 /* Main.storyboard */,
 				EF836475224FC7A2001A30B7 /* Assets.xcassets */,
-				EF836477224FC7A2001A30B7 /* LaunchScreen.storyboard */,
 				EF83647A224FC7A2001A30B7 /* Info.plist */,
 				EF83647B224FC7A2001A30B7 /* main.m */,
 			);
