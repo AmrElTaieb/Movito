@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieContract.h"
+#import "MoviePresenter.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <IMovieView>
 
+@property (weak, nonatomic) IBOutlet UILabel *movieLabel;
+
+- (IBAction)getMovieAction:(id)sender;
 
 @end
 

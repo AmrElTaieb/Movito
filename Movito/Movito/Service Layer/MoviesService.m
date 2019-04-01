@@ -10,7 +10,7 @@
 
 @implementation MoviesService
 
--(void)getConatct:(id<IMoviePresenter>)moviePresenter
+-(void)getMovie:(id<IMoviePresenter>)moviePresenter
 {
     _moviePresenter = moviePresenter;
     [NetworkManager connectGetToURL:@"https://api.androidhive.info/contacts/" serviceName:@"ContactService" serviceProtocol:self];

@@ -13,14 +13,14 @@
 
 @protocol IMovieView <IBaseView>
 
--(void) renderContactWithObject : (Movie*) movie;
+-(void) renderMovieWithObject : (Movie*) movie;
 
 @end
 
 
 @protocol IMoviePresenter <NSObject>
 
--(void) getContact;
+-(void) getMovie;
 -(void) onSuccess : (Movie*) movie;
 -(void) onFail : (NSString*) errorMessage;
 
@@ -30,6 +30,6 @@
 
 @protocol IMovieManager <NSObject>
 
--(void) getConatct : (id<IMoviePresenter>) moviePresenter;
+-(void) getMovie : (id<IMoviePresenter>) moviePresenter;
 
 @end
