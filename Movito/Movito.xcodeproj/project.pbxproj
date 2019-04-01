@@ -16,6 +16,10 @@
 		EF83647C224FC7A2001A30B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83647B224FC7A2001A30B7 /* main.m */; };
 		EF836486224FC7A2001A30B7 /* MovitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836485224FC7A2001A30B7 /* MovitoTests.m */; };
 		EF836491224FC7A2001A30B7 /* MovitoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836490224FC7A2001A30B7 /* MovitoUITests.m */; };
+		EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E222526B8000C6ECDF /* MoviesService.m */; };
+		EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E522526CD900C6ECDF /* NetworkManager.m */; };
+		EFFE10F122526EB500C6ECDF /* ContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10EF22526EB500C6ECDF /* ContactPresenter.m */; };
+		EFFE10F822526FD200C6ECDF /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10F722526FD200C6ECDF /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,18 @@
 		EF83648C224FC7A2001A30B7 /* MovitoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovitoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF836490224FC7A2001A30B7 /* MovitoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovitoUITests.m; sourceTree = "<group>"; };
 		EF836492224FC7A2001A30B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFFE10E122526B8000C6ECDF /* MoviesService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesService.h; sourceTree = "<group>"; };
+		EFFE10E222526B8000C6ECDF /* MoviesService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesService.m; sourceTree = "<group>"; };
+		EFFE10E522526CD900C6ECDF /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Network Layer/NetworkManager.m"; sourceTree = "<group>"; };
+		EFFE10E622526CD900C6ECDF /* ServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceProtocol.h; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Network Layer/ServiceProtocol.h"; sourceTree = "<group>"; };
+		EFFE10E722526CD900C6ECDF /* NetworkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkObserver.h; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Network Layer/NetworkObserver.h"; sourceTree = "<group>"; };
+		EFFE10E822526CD900C6ECDF /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Network Layer/NetworkManager.h"; sourceTree = "<group>"; };
+		EFFE10EF22526EB500C6ECDF /* ContactPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactPresenter.m; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Presnters/ContactPresnter/ContactPresenter.m"; sourceTree = "<group>"; };
+		EFFE10F022526EB500C6ECDF /* ContactPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactPresenter.h; path = "../../../../MVPDemoObjective-C/MVPDemoObjective-C/Presnters/ContactPresnter/ContactPresenter.h"; sourceTree = "<group>"; };
+		EFFE10F622526FD200C6ECDF /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		EFFE10F722526FD200C6ECDF /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		EFFE10F92252775D00C6ECDF /* MovieContract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MovieContract.h; path = Movito/POJO/MovieContract.h; sourceTree = SOURCE_ROOT; };
+		EFFE10FA2252780800C6ECDF /* BaseContract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseContract.h; path = Movito/POJO/BaseContract.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +105,6 @@
 				EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */,
 				759ED65EF351F18FCF850168 /* Pods-Movito.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,8 @@
 		EF7BD618224FF0D900BF79DF /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				EFFE10F022526EB500C6ECDF /* ContactPresenter.h */,
+				EFFE10EF22526EB500C6ECDF /* ContactPresenter.m */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -151,6 +168,10 @@
 		EF83646B224FC7A0001A30B7 /* Movito */ = {
 			isa = PBXGroup;
 			children = (
+				EFFE10F222526ECF00C6ECDF /* POJO */,
+				EFFE10EA22526D8700C6ECDF /* MVP Movies */,
+				EFFE10E422526CA500C6ECDF /* Network Layer */,
+				EFFE10E022526B4000C6ECDF /* Service Layer */,
 				EF7BD618224FF0D900BF79DF /* Presenters */,
 				EF7BD617224FF0C100BF79DF /* Views */,
 				EF7BD616224FF08F00BF79DF /* View Controllers */,
@@ -179,6 +200,44 @@
 				EF836492224FC7A2001A30B7 /* Info.plist */,
 			);
 			path = MovitoUITests;
+			sourceTree = "<group>";
+		};
+		EFFE10E022526B4000C6ECDF /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE10E122526B8000C6ECDF /* MoviesService.h */,
+				EFFE10E222526B8000C6ECDF /* MoviesService.m */,
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		EFFE10E422526CA500C6ECDF /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE10E822526CD900C6ECDF /* NetworkManager.h */,
+				EFFE10E522526CD900C6ECDF /* NetworkManager.m */,
+				EFFE10E722526CD900C6ECDF /* NetworkObserver.h */,
+				EFFE10E622526CD900C6ECDF /* ServiceProtocol.h */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		EFFE10EA22526D8700C6ECDF /* MVP Movies */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE10F92252775D00C6ECDF /* MovieContract.h */,
+				EFFE10FA2252780800C6ECDF /* BaseContract.h */,
+			);
+			path = "MVP Movies";
+			sourceTree = "<group>";
+		};
+		EFFE10F222526ECF00C6ECDF /* POJO */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE10F622526FD200C6ECDF /* Movie.h */,
+				EFFE10F722526FD200C6ECDF /* Movie.m */,
+			);
+			path = POJO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +398,10 @@
 			files = (
 				EF836471224FC7A0001A30B7 /* ViewController.m in Sources */,
 				EF83647C224FC7A2001A30B7 /* main.m in Sources */,
+				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
+				EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */,
+				EFFE10F122526EB500C6ECDF /* ContactPresenter.m in Sources */,
+				EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */,
 				EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
