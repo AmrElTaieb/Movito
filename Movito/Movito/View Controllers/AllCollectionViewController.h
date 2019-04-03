@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieContract.h"
+#import "MoviePresenter.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@interface AllCollectionViewController : UICollectionViewController <IMovieCollectionView>
 
-@interface AllCollectionViewController : UICollectionViewController
+@property NSArray* movies;
 
 @end
 
-NS_ASSUME_NONNULL_END

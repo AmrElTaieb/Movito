@@ -11,9 +11,9 @@
 #import "Movie.h"
 
 
-@protocol IMovieView <IBaseView>
+@protocol IMovieCollectionView <IBaseView>
 
--(void) renderMovieWithObject : (Movie*) movie;
+-(void) supplyMovieArrayWithObject : (NSArray*) movie;
 
 @end
 
@@ -21,7 +21,7 @@
 @protocol IMoviePresenter <NSObject>
 
 -(void) getMovie;
--(void) onSuccess : (Movie*) movie;
+-(void) onSuccess : (NSArray*) movie;
 -(void) onFail : (NSString*) errorMessage;
 
 @end

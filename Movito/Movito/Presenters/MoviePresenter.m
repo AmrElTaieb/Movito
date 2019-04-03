@@ -10,32 +10,32 @@
 
 @implementation MoviePresenter
 
--(instancetype)initWithMovieView:(id<IMovieView>)movieView
+-(instancetype)initWithMovieView:(id<IMovieCollectionView>)movieCollectionView
 {
     self = [super init];
     if (self) {
-        _movieView = movieView;
+        _movieCollectionView = movieCollectionView;
     }
     return self;
 }
 
 -(void)getMovie
 {
-    [_movieView showLoading];
+    [_movieCollectionView showLoading];
     MoviesService *movieService = [MoviesService new];
     [movieService getMovie:self];
 }
 
--(void)onSuccess:(Movie *)movie
+-(void)onSuccess:(NSArray *)movie
 {
-    [_movieView renderMovieWithObject:movie];
-    [_movieView hideLoading];
+    [_movieCollectionView supplyMovieArrayWithObject:movie];
+    [_movieCollectionView hideLoading];
 }
 
 - (void)onFail:(NSString *)errorMessage
 {
-    [_movieView showErrorMessage:errorMessage];
-    [_movieView hideLoading];
+    [_movieCollectionView showErrorMessage:errorMessage];
+    [_movieCollectionView hideLoading];
 }
 
 @end

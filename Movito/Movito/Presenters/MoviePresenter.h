@@ -13,8 +13,8 @@
 
 @interface MoviePresenter : NSObject <IMoviePresenter>
 
-@property id<IMovieView> movieView;
+@property id<IMovieCollectionView> movieCollectionView;
 
--(instancetype) initWithMovieView : (id<IMovieView>) movieView;
+-(instancetype) initWithMovieView : (id<IMovieCollectionView>) movieCollectionView;
 
 @end

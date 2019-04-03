@@ -31,9 +31,9 @@
 }
 
 
--(void)renderMovieWithObject:(Movie *)movie
+-(void)supplyMovieArrayWithObject:(Movie *)movie
 {
-    [_movieLabel setText:[movie name]];
+    [_movieLabel setText:[movie title]];
 }
 
 -(void)showLoading

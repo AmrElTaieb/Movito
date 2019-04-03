@@ -10,7 +10,7 @@
 #import "MovieContract.h"
 #import "MoviePresenter.h"
 
-@interface ViewController : UIViewController <IMovieView>
+@interface ViewController : UIViewController <IMovieCollectionView>
 
 @property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 
