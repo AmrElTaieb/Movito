@@ -133,6 +133,24 @@ NSString *_Nullable MovieToJSON(Movie *hopa, NSStringEncoding encoding, NSError 
     return dict ? [[Movie alloc] initWithJSONDictionary:dict] : nil;
 }
 
+-(Movie*)initWithIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite
+{
+    if (self = [super init])
+    {
+        self.identifier = identifier;
+        self.posterPath = posterPath;
+        self.originalTitle = originalTitle;
+        self.overview = overview;
+        self.voteAverage = voteAverage;
+        self.releaseDate = releaseDate;
+        self.isFavourite = isFavourite;
+        return self;
+    } else
+    {
+        return nil;
+    }
+}
+
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dict
 {
     if (self = [super init]) {

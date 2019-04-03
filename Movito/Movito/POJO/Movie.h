@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Object interfaces
 
 @interface Movie : NSObject
+@property (nonatomic, copy)           NSString *isFavourite;
 @property (nonatomic, assign)         BOOL isAdult;
 @property (nonatomic, copy)           NSString *backdropPath;
 @property (nonatomic, nullable, copy) id belongsToCollection;
@@ -46,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (_Nullable instancetype)fromData:(NSData *)data error:(NSError *_Nullable *)error;
 - (NSString *_Nullable)toJSON:(NSStringEncoding)encoding error:(NSError *_Nullable *)error;
 - (NSData *_Nullable)toData:(NSError *_Nullable *)error;
+-(Movie*)initWithIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite;
 @end
 
 @interface MovieGenre : NSObject
