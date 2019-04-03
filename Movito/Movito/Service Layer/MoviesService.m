@@ -21,10 +21,13 @@
         NSDictionary *dict = (NSDictionary*)jsonData;
         NSArray *contactsArray = [dict objectForKey:@"results"];
         
-        NSDictionary *contactDict = contactsArray[0];
-        
-        Movie *movie = [Movie new];
-        [movie setTitle:[contactDict objectForKey:@"title"]];
+//        NSDictionary *contactDict = contactsArray[0];
+//
+//        Movie *movie = [Movie new];
+//        [movie setTitle:[contactDict objectForKey:@"title"]];
+//        [movie setPosterPath:[contactDict objectForKey:@"poster_path"]];
+//        [movie setBackdropPath:[contactDict objectForKey:@"backdrop_path"]];
+//        printf("Service: %s\n", [[movie posterPath] UTF8String]);
         
         [_moviePresenter onSuccess:contactsArray];
     }
