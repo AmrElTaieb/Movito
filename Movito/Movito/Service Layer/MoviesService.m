@@ -7,6 +7,7 @@
 //
 
 #import "MoviesService.h"
+#import "JSONMovieParser.h"
 
 @implementation MoviesService
 
@@ -21,12 +22,17 @@
         NSDictionary *dict = (NSDictionary*)jsonData;
         NSArray *moviesDictArray = [dict objectForKey:@"results"];
         NSMutableArray* moviesArray = [NSMutableArray new];
-//        for(int i = 0; i<moviesDictArray.count; i++)
-//        {
-//            [moviesArray addObject:[[Movie alloc] initWithIdentifier:[moviesDictArray[i] objectForKey:@"id"] andPosterPath:[moviesDictArray[i] objectForKey:@"poster_path"] andOriginalTitle:[moviesDictArray[i] objectForKey:@"original_title"] andOverview:[moviesDictArray[i] objectForKey:@"identifier"] andVoteAverage:[moviesDictArray[i] objectForKey:@"vote_average"] andReleaseDate:[moviesDictArray[i] objectForKey:@"release_date"] andIsFavourite:[moviesDictArray[i] objectForKey:@"identifier"]]];
-//        }
+        JSONMovieParser* parser = [JSONMovieParser new];
+        for(int i = 0; i<moviesDictArray.count; i++)
+        {
+            [moviesArray addObject:[parser toMovieParseJSONDictionary:moviesDictArray[i]]];
+            if([moviesDictArray[i] objectForKey:@"poster_path"] != nil)
+            {
+                printf("Service %s: \n", [[moviesDictArray[i] objectForKey:@"poster_path"] UTF8String]);
+            }
+        }
         
-        [_moviePresenter onSuccess:moviesDictArray];
+        [_moviePresenter onSuccess:moviesArray];
     }
 }
 

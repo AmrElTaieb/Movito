@@ -21,6 +21,9 @@
 		EF90746E22550C2D00DC6FD8 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = EF90746B22550C2D00DC6FD8 /* wait.png */; };
 		EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90747922550D7E00DC6FD8 /* DatabaseAdapter.m */; };
 		EF90747C22550DA800DC6FD8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF90747B22550DA800DC6FD8 /* libsqlite3.tbd */; };
+		EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9C73152257502100A5D2D7 /* JSONMovieParser.m */; };
+		EF9C73192257555B00A5D2D7 /* notFavourite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9C73172257555A00A5D2D7 /* notFavourite.png */; };
+		EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9C73182257555B00A5D2D7 /* favourite.png */; };
 		EFCFF7092254A5DA004AAD73 /* MVP Movies in Resources */ = {isa = PBXBuildFile; fileRef = EFCFF7082254A5DA004AAD73 /* MVP Movies */; };
 		EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E222526B8000C6ECDF /* MoviesService.m */; };
 		EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E522526CD900C6ECDF /* NetworkManager.m */; };
@@ -72,6 +75,10 @@
 		EF90747822550D7E00DC6FD8 /* DatabaseAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAdapter.h; sourceTree = "<group>"; };
 		EF90747922550D7E00DC6FD8 /* DatabaseAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseAdapter.m; sourceTree = "<group>"; };
 		EF90747B22550DA800DC6FD8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		EF9C73142257502100A5D2D7 /* JSONMovieParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONMovieParser.h; sourceTree = "<group>"; };
+		EF9C73152257502100A5D2D7 /* JSONMovieParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONMovieParser.m; sourceTree = "<group>"; };
+		EF9C73172257555A00A5D2D7 /* notFavourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notFavourite.png; sourceTree = "<group>"; };
+		EF9C73182257555B00A5D2D7 /* favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite.png; sourceTree = "<group>"; };
 		EFCFF7082254A5DA004AAD73 /* MVP Movies */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "MVP Movies"; path = "Movito/MVP Movies"; sourceTree = "<group>"; };
 		EFCFF70A2254A5EC004AAD73 /* BaseContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseContract.h; sourceTree = "<group>"; };
 		EFCFF70B2254A5EC004AAD73 /* MovieContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieContract.h; sourceTree = "<group>"; };
@@ -185,6 +192,8 @@
 		EF83646B224FC7A0001A30B7 /* Movito */ = {
 			isa = PBXGroup;
 			children = (
+				EF9C73182257555B00A5D2D7 /* favourite.png */,
+				EF9C73172257555A00A5D2D7 /* notFavourite.png */,
 				EF90747722550D5200DC6FD8 /* DataBase */,
 				EF90746B22550C2D00DC6FD8 /* wait.png */,
 				EFFE10F222526ECF00C6ECDF /* POJO */,
@@ -264,6 +273,8 @@
 			children = (
 				EFFE10F622526FD200C6ECDF /* Movie.h */,
 				EFFE10F722526FD200C6ECDF /* Movie.m */,
+				EF9C73142257502100A5D2D7 /* JSONMovieParser.h */,
+				EF9C73152257502100A5D2D7 /* JSONMovieParser.m */,
 			);
 			path = POJO;
 			sourceTree = "<group>";
@@ -375,6 +386,8 @@
 				EFCFF7092254A5DA004AAD73 /* MVP Movies in Resources */,
 				EF90746E22550C2D00DC6FD8 /* wait.png in Resources */,
 				EF836479224FC7A2001A30B7 /* LaunchScreen.storyboard in Resources */,
+				EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */,
+				EF9C73192257555B00A5D2D7 /* notFavourite.png in Resources */,
 				EF836476224FC7A2001A30B7 /* Assets.xcassets in Resources */,
 				EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */,
 			);
@@ -427,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF836471224FC7A0001A30B7 /* ViewController.m in Sources */,
+				EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */,
 				EF83647C224FC7A2001A30B7 /* main.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
