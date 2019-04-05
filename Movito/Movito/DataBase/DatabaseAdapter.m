@@ -53,7 +53,7 @@
     }
 }
 
--(NSMutableArray*)selectMoviesTable
+-(NSArray*)selectMoviesTable
 {
     const char *dbpath = [_databasePath UTF8String];
     sqlite3_stmt    *statement;
