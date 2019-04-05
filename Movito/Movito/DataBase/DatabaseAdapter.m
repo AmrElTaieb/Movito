@@ -7,7 +7,6 @@
 //
 
 #import "DatabaseAdapter.h"
-#import "Movie.h"
 
 @implementation DatabaseAdapter
 
@@ -22,7 +21,7 @@
     return sharedInstance;
 }
 
--(void)createTable
+-(void)createMoviesTable
 {
     NSString *docsDir;
     NSArray *dirPaths;
@@ -54,7 +53,7 @@
     }
 }
 
--(NSMutableArray*)selectTable
+-(NSMutableArray*)selectMoviesTable
 {
     const char *dbpath = [_databasePath UTF8String];
     sqlite3_stmt    *statement;
@@ -91,7 +90,7 @@
     return arr;
 }
 
--(void)deleteFromTable:(NSString*)identifier
+-(void)deleteFromMoviesTable:(NSString*)identifier
 {
     sqlite3_stmt    *statement;
     const char *dbpath;
@@ -116,7 +115,7 @@
     }
 }
 
--(BOOL)insertInTableIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite
+-(BOOL)insertInMoviesTableIdentifier:(Movie*)movie
 {
     BOOL ret = YES;
     sqlite3_stmt    *statement;
@@ -126,7 +125,7 @@
     {
         NSString *insertSQL;
         insertSQL = [NSString stringWithFormat:
-                     @"INSERT INTO movies (identifier, posterPath, originalTitle, overview, voteAverage, releaseDate, isFavourite) VALUES (\"%ld\", \"%@\", \"%@\", \"%@\", \"%lf\", \"%@\", \"%@\")", identifier, posterPath, originalTitle, overview, voteAverage, releaseDate, isFavourite];
+                     @"INSERT INTO movies (identifier, posterPath, originalTitle, overview, voteAverage, releaseDate, isFavourite) VALUES (\"%ld\", \"%@\", \"%@\", \"%@\", \"%lf\", \"%@\", \"%@\")", [movie identifier], [movie posterPath], [movie originalTitle], [movie overview], [movie voteAverage], [movie releaseDate], [movie isFavourite]];
         
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_contactDB, insert_stmt,
@@ -144,7 +143,7 @@
     return ret;
 }
 
--(BOOL)updateTableIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite
+-(BOOL)updateMoviesTableIdentifier:(Movie*)movie
 {
     BOOL ret = YES;
     sqlite3_stmt    *statement;
@@ -155,7 +154,7 @@
         NSString *updateSQL;
         updateSQL = [NSString stringWithFormat:
                      @"UPDATE movies SET posterPath = \"%@\", originalTitle = \"%@\", overview = \"%@\", voteAverage = \"%lf\", releaseDate = \"%@\", isFavourite = \"%@\" WHERE identifier=\"%ld\"",
-                     posterPath, originalTitle, overview, voteAverage, releaseDate, isFavourite, identifier];
+                     [movie posterPath], [movie originalTitle], [movie overview], [movie voteAverage], [movie releaseDate], [movie isFavourite], [movie identifier]];
         
         const char *update_stmt = [updateSQL UTF8String];
         sqlite3_prepare_v2(_contactDB, update_stmt,

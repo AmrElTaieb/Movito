@@ -24,7 +24,8 @@
 		EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9C73152257502100A5D2D7 /* JSONMovieParser.m */; };
 		EF9C73192257555B00A5D2D7 /* notFavourite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9C73172257555A00A5D2D7 /* notFavourite.png */; };
 		EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9C73182257555B00A5D2D7 /* favourite.png */; };
-		EFCFF7092254A5DA004AAD73 /* MVP Movies in Resources */ = {isa = PBXBuildFile; fileRef = EFCFF7082254A5DA004AAD73 /* MVP Movies */; };
+		EFC2F3742257A8620069BD27 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC2F3732257A8620069BD27 /* SystemConfiguration.framework */; };
+		EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC2F3752257A8A60069BD27 /* Reachability.m */; };
 		EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E222526B8000C6ECDF /* MoviesService.m */; };
 		EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10E522526CD900C6ECDF /* NetworkManager.m */; };
 		EFFE10F822526FD200C6ECDF /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE10F722526FD200C6ECDF /* Movie.m */; };
@@ -79,7 +80,9 @@
 		EF9C73152257502100A5D2D7 /* JSONMovieParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONMovieParser.m; sourceTree = "<group>"; };
 		EF9C73172257555A00A5D2D7 /* notFavourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notFavourite.png; sourceTree = "<group>"; };
 		EF9C73182257555B00A5D2D7 /* favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite.png; sourceTree = "<group>"; };
-		EFCFF7082254A5DA004AAD73 /* MVP Movies */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "MVP Movies"; path = "Movito/MVP Movies"; sourceTree = "<group>"; };
+		EFC2F3732257A8620069BD27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EFC2F3752257A8A60069BD27 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EFC2F3762257A8A60069BD27 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EFCFF70A2254A5EC004AAD73 /* BaseContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseContract.h; sourceTree = "<group>"; };
 		EFCFF70B2254A5EC004AAD73 /* MovieContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieContract.h; sourceTree = "<group>"; };
 		EFFE10E122526B8000C6ECDF /* MoviesService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesService.h; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC2F3742257A8620069BD27 /* SystemConfiguration.framework in Frameworks */,
 				EF90747C22550DA800DC6FD8 /* libsqlite3.tbd in Frameworks */,
 				01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */,
 			);
@@ -131,6 +135,7 @@
 		C83521D3BE27A512F82BF8D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFC2F3732257A8620069BD27 /* SystemConfiguration.framework */,
 				EF90747B22550DA800DC6FD8 /* libsqlite3.tbd */,
 				4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */,
 			);
@@ -169,7 +174,6 @@
 		EF836460224FC7A0001A30B7 = {
 			isa = PBXGroup;
 			children = (
-				EFCFF7082254A5DA004AAD73 /* MVP Movies */,
 				EF83646B224FC7A0001A30B7 /* Movito */,
 				EF836484224FC7A2001A30B7 /* MovitoTests */,
 				EF83648F224FC7A2001A30B7 /* MovitoUITests */,
@@ -251,6 +255,8 @@
 		EFFE10E422526CA500C6ECDF /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EFC2F3762257A8A60069BD27 /* Reachability.h */,
+				EFC2F3752257A8A60069BD27 /* Reachability.m */,
 				EFFE10E822526CD900C6ECDF /* NetworkManager.h */,
 				EFFE10E522526CD900C6ECDF /* NetworkManager.m */,
 				EFFE10E722526CD900C6ECDF /* NetworkObserver.h */,
@@ -383,7 +389,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFCFF7092254A5DA004AAD73 /* MVP Movies in Resources */,
 				EF90746E22550C2D00DC6FD8 /* wait.png in Resources */,
 				EF836479224FC7A2001A30B7 /* LaunchScreen.storyboard in Resources */,
 				EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */,
@@ -442,6 +447,7 @@
 				EF836471224FC7A0001A30B7 /* ViewController.m in Sources */,
 				EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */,
 				EF83647C224FC7A2001A30B7 /* main.m in Sources */,
+				EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
 				EF8369E722529D3200DB3951 /* MoviePresenter.m in Sources */,

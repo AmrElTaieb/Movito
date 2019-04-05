@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
+#import "Movie.h"
 
 @interface DatabaseAdapter : NSObject
 
@@ -16,11 +17,11 @@
 
 +(DatabaseAdapter*)sharedInstance;
 
--(void)createTable;
--(NSMutableArray*)selectTable;
--(void)deleteFromTable:(NSString*)identifier;
--(BOOL)insertInTableIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite;
--(BOOL)updateTableIdentifier:(NSInteger)identifier andPosterPath:(NSString*)posterPath andOriginalTitle:(NSString*)originalTitle andOverview:(NSString*)overview andVoteAverage:(double)voteAverage andReleaseDate:(NSString*)releaseDate andIsFavourite:(NSString*)isFavourite;
+-(void)createMoviesTable;
+-(NSMutableArray*)selectMoviesTable;
+-(void)deleteFromMoviesTable:(NSString*)identifier;
+-(BOOL)insertInMoviesTableIdentifier:(Movie*)movie;
+-(BOOL)updateMoviesTableIdentifier:(Movie*)movie;
 
 @end
 
