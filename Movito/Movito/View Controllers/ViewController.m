@@ -14,42 +14,30 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (IBAction)getMovieAction:(id)sender
+-(void) renderMovieDataToView: (Movie*) movie
 {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        //Background Thread
-        
-        MoviePresenter *moviePresenter = [[MoviePresenter alloc] initWithMovieView:self];
-        
-        [moviePresenter getMovie];
-    });
+    //
 }
 
-
--(void)supplyMovieArrayWithObject:(Movie *)movie
+-(void) showLoading
 {
-    [_movieLabel setText:[movie title]];
-}
-
--(void)showLoading
-{
-    printf("Show Loading\n");
+    //
 }
 
 -(void) hideLoading
 {
-    printf("hide Loading\n");
+    //
 }
 
--(void)showErrorMessage:(NSString *)errorMessage
+-(void) showErrorMessage : (NSString*) errorMessage
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-    [alert show];
+    //
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MovieContract.h"
-#import "MoviePresenter.h"
+#import "MoviesPresenter.h"
 
 @interface AllCollectionViewController : UICollectionViewController <IMovieCollectionView>
 

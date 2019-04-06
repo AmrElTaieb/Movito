@@ -11,7 +11,7 @@
 #import "MoviesService.h"
 
 
-@interface MoviePresenter : NSObject <IMoviePresenter>
+@interface MoviesPresenter : NSObject <IMoviesPresenter>
 
 @property id<IMovieCollectionView> movieCollectionView;
 

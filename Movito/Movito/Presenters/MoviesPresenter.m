@@ -6,9 +6,10 @@
 //  Copyright © 2019 Amr Mohamed Koritem. All rights reserved.
 //
 
-#import "MoviePresenter.h"
+#import "MoviesPresenter.h"
+#import "ViewController.h"
 
-@implementation MoviePresenter
+@implementation MoviesPresenter
 
 -(instancetype)initWithMovieView:(id<IMovieCollectionView>)movieCollectionView
 {

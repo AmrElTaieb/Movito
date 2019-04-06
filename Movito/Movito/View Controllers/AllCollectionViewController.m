@@ -7,6 +7,7 @@
 //
 
 #import "AllCollectionViewController.h"
+#import "ViewController.h"
 
 @interface AllCollectionViewController ()
 
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _loadFlag = NO;
-    MoviePresenter *moviePresenter = [[MoviePresenter alloc] initWithMovieView:self];
+    MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
     [moviePresenter getMovie];
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -118,6 +119,14 @@
 
 #pragma mark <UICollectionViewDelegate>
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    vc.movie = _movies[indexPath.item];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,6 +138,9 @@
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+ ThirdViewController* tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"];
+ tvc.hidesBottomBarWhenPushed = YES;
+ [self.navigationController pushViewController:tvc animated:YES];
 }
 */
 

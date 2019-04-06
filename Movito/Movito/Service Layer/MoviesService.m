@@ -14,7 +14,7 @@
 
 @implementation MoviesService
 
--(void)getMovie:(id<IMoviePresenter>)moviePresenter
+-(void)getMovie:(id<IMoviesPresenter>)moviePresenter
 {
     _moviePresenter = moviePresenter;
     [self checkForNetwork];

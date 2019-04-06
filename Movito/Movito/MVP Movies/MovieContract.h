@@ -17,8 +17,14 @@
 
 @end
 
+@protocol IMovieView <IBaseView>
 
-@protocol IMoviePresenter <NSObject>
+-(void) renderMovieDataToView: (Movie*) movie;
+
+@end
+
+
+@protocol IMoviesPresenter <NSObject>
 
 -(void) getMovie;
 -(void) onSuccess : (NSArray*) movie;
@@ -27,9 +33,8 @@
 @end
 
 
-
 @protocol IMovieManager <NSObject>
 
--(void) getMovie : (id<IMoviePresenter>) moviePresenter;
+-(void) getMovie : (id<IMoviesPresenter>) moviePresenter;
 
 @end
