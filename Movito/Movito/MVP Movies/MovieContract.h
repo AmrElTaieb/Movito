@@ -19,7 +19,7 @@
 
 @protocol IMovieView <IBaseView>
 
--(void) renderMovieDataToView: (Movie*) movie;
+-(void) renderMovieDataToView;
 
 @end
 

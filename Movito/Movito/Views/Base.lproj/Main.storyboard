@@ -122,6 +122,7 @@
                         <outlet property="movieOverviewText" destination="3aL-qs-6oI" id="3HO-xt-odg"/>
                         <outlet property="moviePosterImage" destination="Yp4-Ko-Vd8" id="7CO-U5-cjg"/>
                         <outlet property="movieRatingLabel" destination="gmP-KP-oW5" id="LdC-M5-yMh"/>
+                        <outlet property="movieTitleLabel" destination="2tz-sF-F0y" id="q3X-4D-ax9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owm-gg-pam" userLabel="First Responder" sceneMemberID="firstResponder"/>
