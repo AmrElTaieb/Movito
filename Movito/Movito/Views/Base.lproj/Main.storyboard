@@ -113,11 +113,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEQ-lE-BFh">
+                                <rect key="frame" x="262" y="387" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EnA-ve-8YM"/>
                     </view>
                     <connections>
+                        <outlet property="isFavouriteImage" destination="dEQ-lE-BFh" id="1Iy-tY-jKT"/>
                         <outlet property="movieDateLabel" destination="6hq-i6-NHi" id="ubk-VN-9fR"/>
                         <outlet property="movieOverviewText" destination="3aL-qs-6oI" id="3HO-xt-odg"/>
                         <outlet property="moviePosterImage" destination="Yp4-Ko-Vd8" id="7CO-U5-cjg"/>

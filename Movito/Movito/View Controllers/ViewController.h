@@ -12,6 +12,7 @@
 #import "MoviesPresenter.h"
 
 @interface ViewController : UIViewController <IMovieView>
+@property (weak, nonatomic) IBOutlet UIImageView *isFavouriteImage;
 
 @property (weak, nonatomic) IBOutlet UIImageView *moviePosterImage;
 @property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
