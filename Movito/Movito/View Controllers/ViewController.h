@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <HCSStarRatingView.h>
 #import "MovieContract.h"
 #import "MovieDetailsPresenter.h"
 

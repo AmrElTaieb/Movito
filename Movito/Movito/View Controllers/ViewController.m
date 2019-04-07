@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self setStars];
     [self setGesture];
     [self renderMovieDataToView];
 }
@@ -55,6 +56,20 @@
     //
 }
 
+-(void)setStars
+{
+    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:[_movieRatingLabel frame]];
+    starRatingView.allowsHalfStars = YES;
+    starRatingView.accurateHalfStars = YES;
+    starRatingView.maximumValue = 10;
+    starRatingView.minimumValue = 0;
+    starRatingView.value = [_movie voteAverage];
+    starRatingView.tintColor = [UIColor blueColor];
+    starRatingView.userInteractionEnabled = NO;
+//    [starRatingView addTarget:self action:@selector(didChangeValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:starRatingView];
+}
+    
 -(void)setGesture
 {
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
