@@ -12,6 +12,8 @@
 
 @interface DatabaseAdapter : NSObject
 
+@property NSMutableArray* favourites;
+
 @property (strong , nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
 
@@ -20,6 +22,7 @@
 -(void)createMoviesTable;
 -(NSMutableArray*)selectMoviesTable;
 -(BOOL)deleteFromMoviesTable:(NSString*)identifier;
+-(BOOL)emptyMoviesTable;
 -(BOOL)insertInMoviesTableIdentifier:(Movie*)movie;
 -(BOOL)updateMoviesTableIdentifier:(Movie*)movie;
 

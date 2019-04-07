@@ -118,6 +118,35 @@
     return ret;
 }
 
+-(BOOL)emptyMoviesTable
+{
+    _favourites = [self selectMoviesTable];
+    BOOL ret = YES;
+    sqlite3_stmt    *statement;
+    const char *dbpath;
+    dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        
+        NSString *deleteSQL = [NSString stringWithFormat: @"DELETE FROM movies"];
+        
+        const char *delete_stmt = [deleteSQL UTF8String];
+        sqlite3_prepare_v2(_contactDB, delete_stmt,
+                           -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            printf("movie deleted\n");
+        } else {
+            printf("Failed to delete movie\n");
+            ret = NO;
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_contactDB);
+    }
+    return ret;
+}
+
 -(BOOL)insertInMoviesTableIdentifier:(Movie*)movie
 {
     BOOL ret = YES;
@@ -142,6 +171,15 @@
         }
         sqlite3_finalize(statement);
         sqlite3_close(_contactDB);
+    }
+    for(int i = 0; i<_favourites.count; i++)
+    {
+        Movie* tmpMovie = _favourites[i];
+        if ([tmpMovie identifier] == movie.identifier)
+        {
+            [self updateMoviesTableIdentifier:tmpMovie];
+            break;
+        }
     }
     return ret;
 }

@@ -28,6 +28,7 @@
         JSONMovieParser* parser = [JSONMovieParser new];
         DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
         [db createMoviesTable];
+        [db emptyMoviesTable];
         for(int i = 0; i<moviesDictArray.count; i++)
         {
             [moviesArray addObject:[parser toMovieParseJSONDictionary:moviesDictArray[i]]];
