@@ -20,6 +20,7 @@
 @protocol IMovieView <IBaseView>
 
 -(void) renderMovieDataToView;
+-(void) rebindFavouriteStatus : (Movie*) movie;
 
 @end
 
@@ -32,9 +33,17 @@
 
 @end
 
+@protocol IMovieDetailsPresenter <NSObject>
+
+-(void) toggleFavourites : (Movie*) movie;
+-(void) sendMovieToView : (Movie*) movie;
+
+@end
+
 
 @protocol IMovieManager <NSObject>
 
 -(void) getMovie : (id<IMoviesPresenter>) moviePresenter;
+-(void) toggleFavouriteStatus : (Movie*) movie forDetailsPresenter : (id<IMovieDetailsPresenter>) movieDetailsPresenter;
 
 @end

@@ -90,8 +90,9 @@
     return arr;
 }
 
--(void)deleteFromMoviesTable:(NSString*)identifier
+-(BOOL)deleteFromMoviesTable:(NSString*)identifier
 {
+    BOOL ret = YES;
     sqlite3_stmt    *statement;
     const char *dbpath;
     dbpath = [_databasePath UTF8String];
@@ -109,10 +110,12 @@
             printf("movie deleted\n");
         } else {
             printf("Failed to delete movie\n");
+            ret = NO;
         }
         sqlite3_finalize(statement);
         sqlite3_close(_contactDB);
     }
+    return ret;
 }
 
 -(BOOL)insertInMoviesTableIdentifier:(Movie*)movie
@@ -161,9 +164,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("movie added\n");
+            printf("movie updated\n");
         } else {
-            printf("Failed to add movie\n");
+            printf("Failed to update movie\n");
             ret = NO;
         }
         sqlite3_finalize(statement);

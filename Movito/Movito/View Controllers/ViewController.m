@@ -65,16 +65,16 @@
 
 -(void) tapDetected
 {
-    if([[_movie isFavourite] isEqualToString:@"notFavourite"])
-    {
-        _movie.isFavourite = @"favourite";
-    } else
-    {
-        _movie.isFavourite = @"notFavourite";
-    }
+    MovieDetailsPresenter* presenter = [[MovieDetailsPresenter alloc] initWithMovieView:self];
+    [presenter toggleFavourites:_movie];
+    printf("image tapped\n");
+}
+
+-(void) rebindFavouriteStatus : (Movie*) movie
+{
+    _movie = movie;
     UIImage* tmpImg = [UIImage imageNamed:[_movie isFavourite]];
     [_isFavouriteImage setImage:tmpImg];
-    printf("image tapped\n");
 }
 
 //- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {

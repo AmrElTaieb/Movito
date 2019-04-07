@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MovieContract.h"
-#import "MoviesPresenter.h"
+#import "MovieDetailsPresenter.h"
 
 @interface ViewController : UIViewController <IMovieView>
 @property (weak, nonatomic) IBOutlet UIImageView *isFavouriteImage;

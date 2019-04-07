@@ -14,7 +14,8 @@
 
 @interface MoviesService : NSObject <NetworkObserver , ServiceProtocol , IMovieManager>
 
-@property id<IMoviesPresenter> moviePresenter;
+@property id<IMoviesPresenter> moviesPresenter;
+@property id<IMovieDetailsPresenter> movieDetailsPresenter;
 
 @end
 

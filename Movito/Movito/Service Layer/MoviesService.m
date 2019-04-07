@@ -16,7 +16,7 @@
 
 -(void)getMovie:(id<IMoviesPresenter>)moviePresenter
 {
-    _moviePresenter = moviePresenter;
+    _moviesPresenter = moviePresenter;
     [self checkForNetwork];
 }
 
@@ -41,8 +41,25 @@
             }
         }
         
-        [_moviePresenter onSuccess:moviesArray];
+//        [_moviesPresenter onSuccess:moviesArray];
+        [self loadFromDatabase];
     }
+}
+
+-(void) toggleFavouriteStatus : (Movie*) movie forDetailsPresenter : (id<IMovieDetailsPresenter>) movieDetailsPresenter
+{
+    _movieDetailsPresenter = movieDetailsPresenter;
+    DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
+    [db createMoviesTable];
+    if([[movie isFavourite] isEqualToString:@"notFavourite"])
+    {
+        movie.isFavourite = @"favourite";
+    } else
+    {
+        movie.isFavourite = @"notFavourite";
+    }
+    [db updateMoviesTableIdentifier:movie];
+    [_movieDetailsPresenter sendMovieToView:movie];
 }
 
 -(void)loadFromDatabase
@@ -50,12 +67,12 @@
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createMoviesTable];
     NSArray* moviesArray = [db selectMoviesTable];
-    [_moviePresenter onSuccess:moviesArray];
+    [_moviesPresenter onSuccess:moviesArray];
 }
 
 -(void)handleFailWithErrorMessage:(NSString *)errorMessage
 {
-    [_moviePresenter onFail:errorMessage];
+    [_moviesPresenter onFail:errorMessage];
 }
 
 - (void)checkForNetwork

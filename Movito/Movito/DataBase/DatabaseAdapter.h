@@ -19,7 +19,7 @@
 
 -(void)createMoviesTable;
 -(NSMutableArray*)selectMoviesTable;
--(void)deleteFromMoviesTable:(NSString*)identifier;
+-(BOOL)deleteFromMoviesTable:(NSString*)identifier;
 -(BOOL)insertInMoviesTableIdentifier:(Movie*)movie;
 -(BOOL)updateMoviesTableIdentifier:(Movie*)movie;
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */; };
+		EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */; };
 		EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83646D224FC7A0001A30B7 /* AppDelegate.m */; };
 		EF836471224FC7A0001A30B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836470224FC7A0001A30B7 /* ViewController.m */; };
 		EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF836472224FC7A0001A30B7 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		759ED65EF351F18FCF850168 /* Pods-Movito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.release.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.release.xcconfig"; sourceTree = "<group>"; };
 		EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.debug.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.debug.xcconfig"; sourceTree = "<group>"; };
+		EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsPresenter.h; sourceTree = "<group>"; };
+		EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsPresenter.m; sourceTree = "<group>"; };
 		EF836469224FC7A0001A30B7 /* Movito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF83646C224FC7A0001A30B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF83646D224FC7A0001A30B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 			children = (
 				EF8369E522529D3200DB3951 /* MoviesPresenter.h */,
 				EF8369E622529D3200DB3951 /* MoviesPresenter.m */,
+				EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */,
+				EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
 				EF8369E722529D3200DB3951 /* MoviesPresenter.m in Sources */,
 				EF8369EA2252A40300DB3951 /* AllCollectionViewController.m in Sources */,
+				EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */,
 				EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */,
 				EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */,
 				EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */,
