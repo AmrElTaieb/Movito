@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7112C23401E4348426599D9FEA243960"
+               BlueprintIdentifier = "45618FEC7B4EE351DF0180D75DFB9545"
                BuildableName = "libPods-Movito.a"
                BlueprintName = "Pods-Movito"
                ReferencedContainer = "container:Pods.xcodeproj">

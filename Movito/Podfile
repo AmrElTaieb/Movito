@@ -5,4 +5,6 @@ target 'Movito' do
 
     pod 'AFNetworking', '~> 2.5'
 
+    pod 'HCSStarRatingView', '~> 1.5'
+
 end
