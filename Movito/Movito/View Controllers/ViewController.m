@@ -18,13 +18,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self setStars];
-    [self setGesture];
     [self renderMovieDataToView];
 }
 
 -(void) renderMovieDataToView
 {
+    [self setStars];
+    [self setGesture];
+    
     NSMutableString* tmpStr = [[NSMutableString alloc] initWithString:@"https://image.tmdb.org/t/p/w600_and_h900_bestv2/"];
     //w185
     [tmpStr appendString:[_movie posterPath]];

@@ -7,11 +7,13 @@
 //
 
 #import "AllCollectionViewController.h"
+#import "FavouriteCollectionViewController.h"
 #import "ViewController.h"
 
 @interface AllCollectionViewController ()
 
 @property BOOL loadFlag;
+@property BOOL favouritesFlag;
 
 @end
 
@@ -22,8 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _loadFlag = NO;
+    _favouritesFlag = NO;
     MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
     [moviePresenter getMovie];
+    self.tabBarController.delegate = self;
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,6 +36,25 @@
     
     // Do any additional setup after loading the view.
 }
+
+//-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+//{
+//    if ([tabBarController.viewControllers indexOfObject:viewController] == 1 && _favouritesFlag)
+//    {
+//        MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
+//        [moviePresenter updateFavouritesService];
+//        printf("It's a profile\n");
+//        return YES;
+//    } else
+//    {
+//        if ([tabBarController.viewControllers indexOfObject:viewController] == 1)
+//        {
+//            _favouritesFlag = YES;
+//        }
+//        printf("It's %lu\n", [tabBarController.viewControllers indexOfObject:viewController]);
+//        return YES;
+//    }
+//}
 
 #pragma mark <IMovieCollectionView>
 

@@ -16,6 +16,7 @@
 
 @property id<IMoviesPresenter> moviesPresenter;
 @property id<IMovieDetailsPresenter> movieDetailsPresenter;
+@property id<IFavouritesPresenter> favouritesPresenter;
 
 @end
 

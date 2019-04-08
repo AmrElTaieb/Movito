@@ -24,12 +24,28 @@
 
 @end
 
+@protocol IFavouriteView <IBaseView>
+    
+-(void) supplyMovieArrayWithObject : (NSArray*) movie;
+//-(void) reloadView;
+
+@end
+
 
 @protocol IMoviesPresenter <NSObject>
 
 -(void) getMovie;
 -(void) onSuccess : (NSArray*) movie;
 -(void) onFail : (NSString*) errorMessage;
+//-(void) updateFavouritesService;
+
+@end
+
+@protocol IFavouritesPresenter <NSObject>
+
+-(void) getFavourite;
+-(void) sendMovieToView : (NSArray*) favourites;
+//-(void) updateFavouritesView;
 
 @end
 
@@ -45,5 +61,7 @@
 
 -(void) getMovie : (id<IMoviesPresenter>) moviePresenter;
 -(void) toggleFavouriteStatus : (Movie*) movie forDetailsPresenter : (id<IMovieDetailsPresenter>) movieDetailsPresenter;
+-(void) loadFavouritesFromDatabase:(id<IFavouritesPresenter>)favouritesPresenter;
+//-(void) updateFavouritesPresenter;
 
 @end

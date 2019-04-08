@@ -19,6 +19,8 @@
 		EF836491224FC7A2001A30B7 /* MovitoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836490224FC7A2001A30B7 /* MovitoUITests.m */; };
 		EF8369E722529D3200DB3951 /* MoviesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8369E622529D3200DB3951 /* MoviesPresenter.m */; };
 		EF8369EA2252A40300DB3951 /* AllCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8369E92252A40300DB3951 /* AllCollectionViewController.m */; };
+		EF90504E2259F6B8000569D2 /* FavouriteCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90504D2259F6B8000569D2 /* FavouriteCollectionViewController.m */; };
+		EF9050512259F9CE000569D2 /* FavouritesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9050502259F9CE000569D2 /* FavouritesPresenter.m */; };
 		EF90746E22550C2D00DC6FD8 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = EF90746B22550C2D00DC6FD8 /* wait.png */; };
 		EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90747922550D7E00DC6FD8 /* DatabaseAdapter.m */; };
 		EF90747C22550DA800DC6FD8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF90747B22550DA800DC6FD8 /* libsqlite3.tbd */; };
@@ -75,6 +77,10 @@
 		EF8369E622529D3200DB3951 /* MoviesPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesPresenter.m; sourceTree = "<group>"; };
 		EF8369E82252A40300DB3951 /* AllCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCollectionViewController.h; sourceTree = "<group>"; };
 		EF8369E92252A40300DB3951 /* AllCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCollectionViewController.m; sourceTree = "<group>"; };
+		EF90504C2259F6B8000569D2 /* FavouriteCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouriteCollectionViewController.h; sourceTree = "<group>"; };
+		EF90504D2259F6B8000569D2 /* FavouriteCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouriteCollectionViewController.m; sourceTree = "<group>"; };
+		EF90504F2259F9CE000569D2 /* FavouritesPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouritesPresenter.h; sourceTree = "<group>"; };
+		EF9050502259F9CE000569D2 /* FavouritesPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouritesPresenter.m; sourceTree = "<group>"; };
 		EF90746B22550C2D00DC6FD8 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
 		EF90747822550D7E00DC6FD8 /* DatabaseAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAdapter.h; sourceTree = "<group>"; };
 		EF90747922550D7E00DC6FD8 /* DatabaseAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseAdapter.m; sourceTree = "<group>"; };
@@ -152,6 +158,8 @@
 				EF836470224FC7A0001A30B7 /* ViewController.m */,
 				EF8369E82252A40300DB3951 /* AllCollectionViewController.h */,
 				EF8369E92252A40300DB3951 /* AllCollectionViewController.m */,
+				EF90504C2259F6B8000569D2 /* FavouriteCollectionViewController.h */,
+				EF90504D2259F6B8000569D2 /* FavouriteCollectionViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -172,6 +180,8 @@
 				EF8369E622529D3200DB3951 /* MoviesPresenter.m */,
 				EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */,
 				EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */,
+				EF90504F2259F9CE000569D2 /* FavouritesPresenter.h */,
+				EF9050502259F9CE000569D2 /* FavouritesPresenter.m */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -455,11 +465,13 @@
 				EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
+				EF90504E2259F6B8000569D2 /* FavouriteCollectionViewController.m in Sources */,
 				EF8369E722529D3200DB3951 /* MoviesPresenter.m in Sources */,
 				EF8369EA2252A40300DB3951 /* AllCollectionViewController.m in Sources */,
 				EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */,
 				EFFE10E322526B8000C6ECDF /* MoviesService.m in Sources */,
 				EFFE10E922526CD900C6ECDF /* NetworkManager.m in Sources */,
+				EF9050512259F9CE000569D2 /* FavouritesPresenter.m in Sources */,
 				EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

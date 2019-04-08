@@ -43,9 +43,15 @@
         }
         
 //        [_moviesPresenter onSuccess:moviesArray];
-        [self loadFromDatabase];
+        [self loadMoviesFromDatabase];
     }
 }
+
+//-(void) updateFavouritesPresenter
+//{
+//    printf("Service: updateFavouritesPresenter\n");
+//    [_favouritesPresenter updateFavouritesView];
+//}
 
 -(void) toggleFavouriteStatus : (Movie*) movie forDetailsPresenter : (id<IMovieDetailsPresenter>) movieDetailsPresenter
 {
@@ -63,12 +69,33 @@
     [_movieDetailsPresenter sendMovieToView:movie];
 }
 
--(void)loadFromDatabase
+-(void)loadMoviesFromDatabase
 {
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createMoviesTable];
     NSArray* moviesArray = [db selectMoviesTable];
     [_moviesPresenter onSuccess:moviesArray];
+    printf("Service: loadMoviesFromDatabase\n");
+}
+    
+-(void)loadFavouritesFromDatabase:(id<IFavouritesPresenter>)favouritesPresenter
+{
+    _favouritesPresenter = favouritesPresenter;
+    DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
+    [db createMoviesTable];
+    NSMutableArray* favouritesArray = [db selectMoviesTable];
+    for(int i = 0; i<favouritesArray.count; i++)
+    {
+        Movie* tmpMovie = favouritesArray[i];
+        if([tmpMovie.isFavourite isEqualToString:@"notFavourite"])
+        {
+            [favouritesArray removeObjectAtIndex:i];
+//            printf("notFavourite: %s\n", [tmpMovie.originalTitle UTF8String]);
+            i--;
+        }
+    }
+    [_favouritesPresenter sendMovieToView:favouritesArray];
+    printf("Service: loadFavouritesFromDatabase\n");
 }
 
 -(void)handleFailWithErrorMessage:(NSString *)errorMessage
@@ -85,7 +112,7 @@
     switch (myStatus) {
         case NotReachable:
             printf("There's no internet connection at all. Getting data from database..\n");
-            [self loadFromDatabase];
+            [self loadMoviesFromDatabase];
             break;
 
         case ReachableViaWWAN:

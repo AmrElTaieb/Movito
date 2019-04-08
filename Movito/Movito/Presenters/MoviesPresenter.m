@@ -39,4 +39,10 @@
     [_movieCollectionView hideLoading];
 }
 
+//-(void) updateFavouritesService
+//{
+//    MoviesService *movieService = [MoviesService new];
+//    [movieService updateFavouritesPresenter];
+//}
+
 @end
