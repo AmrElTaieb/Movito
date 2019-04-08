@@ -26,5 +26,10 @@
 -(BOOL)insertInMoviesTableIdentifier:(Movie*)movie;
 -(BOOL)updateMoviesTableIdentifier:(Movie*)movie;
 
+-(void)createFavouritesTable;
+-(NSArray*)selectFavouritesTable;
+-(BOOL)deleteFromFavouritesTable:(NSString*)identifier;
+-(BOOL)insertInFavouritesTableIdentifier:(Movie*)movie;
+
 @end
 

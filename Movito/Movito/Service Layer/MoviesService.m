@@ -58,12 +58,16 @@
     _movieDetailsPresenter = movieDetailsPresenter;
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createMoviesTable];
+    [db createFavouritesTable];
     if([[movie isFavourite] isEqualToString:@"notFavourite"])
     {
         movie.isFavourite = @"favourite";
+        [db insertInFavouritesTableIdentifier:movie];
     } else
     {
         movie.isFavourite = @"notFavourite";
+        NSString* tmpStr = [NSString stringWithFormat:@"%ld",[movie identifier]];
+        [db deleteFromFavouritesTable:tmpStr];
     }
     [db updateMoviesTableIdentifier:movie];
     [_movieDetailsPresenter sendMovieToView:movie];
@@ -82,18 +86,18 @@
 {
     _favouritesPresenter = favouritesPresenter;
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
-    [db createMoviesTable];
-    NSMutableArray* favouritesArray = [db selectMoviesTable];
-    for(int i = 0; i<favouritesArray.count; i++)
-    {
-        Movie* tmpMovie = favouritesArray[i];
-        if([tmpMovie.isFavourite isEqualToString:@"notFavourite"])
-        {
-            [favouritesArray removeObjectAtIndex:i];
-//            printf("notFavourite: %s\n", [tmpMovie.originalTitle UTF8String]);
-            i--;
-        }
-    }
+    [db createFavouritesTable];
+    NSArray* favouritesArray = [db selectFavouritesTable];
+//    for(int i = 0; i<favouritesArray.count; i++)
+//    {
+//        Movie* tmpMovie = favouritesArray[i];
+//        if([tmpMovie.isFavourite isEqualToString:@"notFavourite"])
+//        {
+//            [favouritesArray removeObjectAtIndex:i];
+////            printf("notFavourite: %s\n", [tmpMovie.originalTitle UTF8String]);
+//            i--;
+//        }
+//    }
     [_favouritesPresenter sendMovieToView:favouritesArray];
     printf("Service: loadFavouritesFromDatabase\n");
 }
