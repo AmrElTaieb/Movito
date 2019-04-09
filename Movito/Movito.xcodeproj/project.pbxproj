@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */; };
+		EF727DE8225C7DA60054A37B /* TrailersService.m in Sources */ = {isa = PBXBuildFile; fileRef = EF727DE7225C7DA60054A37B /* TrailersService.m */; };
 		EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */; };
+		EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CD174225CF4C700C34F8B /* Trailer.m */; };
 		EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83646D224FC7A0001A30B7 /* AppDelegate.m */; };
 		EF836471224FC7A0001A30B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836470224FC7A0001A30B7 /* ViewController.m */; };
 		EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF836472224FC7A0001A30B7 /* Main.storyboard */; };
@@ -55,8 +57,12 @@
 		4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		759ED65EF351F18FCF850168 /* Pods-Movito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.release.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.release.xcconfig"; sourceTree = "<group>"; };
 		EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.debug.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.debug.xcconfig"; sourceTree = "<group>"; };
+		EF727DE6225C7DA60054A37B /* TrailersService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailersService.h; sourceTree = "<group>"; };
+		EF727DE7225C7DA60054A37B /* TrailersService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailersService.m; sourceTree = "<group>"; };
 		EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsPresenter.h; sourceTree = "<group>"; };
 		EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsPresenter.m; sourceTree = "<group>"; };
+		EF7CD173225CF4C700C34F8B /* Trailer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trailer.h; sourceTree = "<group>"; };
+		EF7CD174225CF4C700C34F8B /* Trailer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Trailer.m; sourceTree = "<group>"; };
 		EF836469224FC7A0001A30B7 /* Movito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF83646C224FC7A0001A30B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF83646D224FC7A0001A30B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 			children = (
 				EFFE10E122526B8000C6ECDF /* MoviesService.h */,
 				EFFE10E222526B8000C6ECDF /* MoviesService.m */,
+				EF727DE6225C7DA60054A37B /* TrailersService.h */,
+				EF727DE7225C7DA60054A37B /* TrailersService.m */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -296,6 +304,8 @@
 				EFFE10F722526FD200C6ECDF /* Movie.m */,
 				EF9C73142257502100A5D2D7 /* JSONMovieParser.h */,
 				EF9C73152257502100A5D2D7 /* JSONMovieParser.m */,
+				EF7CD173225CF4C700C34F8B /* Trailer.h */,
+				EF7CD174225CF4C700C34F8B /* Trailer.m */,
 			);
 			path = POJO;
 			sourceTree = "<group>";
@@ -459,12 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF727DE8225C7DA60054A37B /* TrailersService.m in Sources */,
 				EF836471224FC7A0001A30B7 /* ViewController.m in Sources */,
 				EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */,
 				EF83647C224FC7A2001A30B7 /* main.m in Sources */,
 				EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
+				EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */,
 				EF90504E2259F6B8000569D2 /* FavouriteCollectionViewController.m in Sources */,
 				EF8369E722529D3200DB3951 /* MoviesPresenter.m in Sources */,
 				EF8369EA2252A40300DB3951 /* AllCollectionViewController.m in Sources */,

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Movie.h"
+#import "Trailer.h"
 
 @interface JSONMovieParser : NSObject
 
 -(Movie*)toMovieParseJSONDictionary:(NSDictionary*)dictionary;
+-(Trailer*)toTrailerParseJSONDictionary:(NSDictionary*)dictionary ofMovie:(Movie*)movie;
 
 @end
 

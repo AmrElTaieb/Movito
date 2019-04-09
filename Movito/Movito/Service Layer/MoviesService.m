@@ -33,16 +33,8 @@
         {
             [moviesArray addObject:[parser toMovieParseJSONDictionary:moviesDictArray[i]]];
             [db insertInMoviesTableIdentifier:moviesArray[i]];
-            if([moviesDictArray[i] objectForKey:@"poster_path"] == nil ||  [moviesDictArray[i] objectForKey:@"poster_path"] == (id)[NSNull null])
-            {
-                printf("Service: Null\n");
-            } else
-            {
-                printf("Service: %s\n", [[moviesDictArray[i] objectForKey:@"poster_path"] UTF8String]);
-            }
+            //
         }
-        
-//        [_moviesPresenter onSuccess:moviesArray];
         [self loadMoviesFromDatabase];
     }
 }

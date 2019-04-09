@@ -65,3 +65,9 @@
 //-(void) updateFavouritesPresenter;
 
 @end
+
+@protocol ITrailerManager <NSObject>
+
+-(void) getTrailer : (Movie*) movie;
+
+@end

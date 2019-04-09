@@ -29,4 +29,11 @@
     return movie;
 }
 
+-(Trailer*)toTrailerParseJSONDictionary:(NSDictionary*)dictionary ofMovie:(Movie*)movie
+{
+    Trailer* trailer;
+    
+    return trailer;
+}
+
 @end
