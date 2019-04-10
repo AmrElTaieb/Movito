@@ -7,7 +7,6 @@
 //
 
 #import "MoviesPresenter.h"
-#import "ViewController.h"
 
 @implementation MoviesPresenter
 

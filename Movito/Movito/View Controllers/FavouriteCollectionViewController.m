@@ -7,7 +7,7 @@
 //
 
 #import "FavouriteCollectionViewController.h"
-#import "ViewController.h"
+#import "DetailsViewController.h"
 #import "../Presenters/FavouritesPresenter.h"
 #import "../POJO/Trailer.h"
 
@@ -134,10 +134,10 @@
     
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
-    vc.movie = _movies[indexPath.item];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    DetailsViewController* dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsViewController"];
+    dvc.movie = _movies[indexPath.item];
+    dvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dvc animated:YES];
 }
     
 /*

@@ -20,7 +20,6 @@
 
 @protocol IMovieView <IBaseView>
 
--(void) renderMovieDataToView;
 -(void) rebindFavouriteStatus : (Movie*) movie;
 
 @end

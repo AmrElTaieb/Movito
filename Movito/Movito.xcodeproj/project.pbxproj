@@ -10,10 +10,10 @@
 		01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */; };
 		EF622F99225E168D0074EFBE /* bar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F97225E168D0074EFBE /* bar_home.png */; };
 		EF622F9A225E168D0074EFBE /* bar_favourites.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F98225E168D0074EFBE /* bar_favourites.png */; };
+		EF622F9D225E1E3F0074EFBE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF622F9C225E1E3F0074EFBE /* DetailsViewController.m */; };
 		EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */; };
 		EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CD174225CF4C700C34F8B /* Trailer.m */; };
 		EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83646D224FC7A0001A30B7 /* AppDelegate.m */; };
-		EF836471224FC7A0001A30B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF836470224FC7A0001A30B7 /* ViewController.m */; };
 		EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF836472224FC7A0001A30B7 /* Main.storyboard */; };
 		EF836476224FC7A2001A30B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF836475224FC7A2001A30B7 /* Assets.xcassets */; };
 		EF836479224FC7A2001A30B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF836477224FC7A2001A30B7 /* LaunchScreen.storyboard */; };
@@ -60,6 +60,8 @@
 		EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.debug.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.debug.xcconfig"; sourceTree = "<group>"; };
 		EF622F97225E168D0074EFBE /* bar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_home.png; sourceTree = "<group>"; };
 		EF622F98225E168D0074EFBE /* bar_favourites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_favourites.png; sourceTree = "<group>"; };
+		EF622F9B225E1E3F0074EFBE /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		EF622F9C225E1E3F0074EFBE /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsPresenter.h; sourceTree = "<group>"; };
 		EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsPresenter.m; sourceTree = "<group>"; };
 		EF7CD173225CF4C700C34F8B /* Trailer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trailer.h; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		EF836469224FC7A0001A30B7 /* Movito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF83646C224FC7A0001A30B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF83646D224FC7A0001A30B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EF83646F224FC7A0001A30B7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EF836470224FC7A0001A30B7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EF836473224FC7A0001A30B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF836475224FC7A2001A30B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF836478224FC7A2001A30B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -161,12 +161,12 @@
 		EF7BD616224FF08F00BF79DF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF83646F224FC7A0001A30B7 /* ViewController.h */,
-				EF836470224FC7A0001A30B7 /* ViewController.m */,
 				EF8369E82252A40300DB3951 /* AllCollectionViewController.h */,
 				EF8369E92252A40300DB3951 /* AllCollectionViewController.m */,
 				EF90504C2259F6B8000569D2 /* FavouriteCollectionViewController.h */,
 				EF90504D2259F6B8000569D2 /* FavouriteCollectionViewController.m */,
+				EF622F9B225E1E3F0074EFBE /* DetailsViewController.h */,
+				EF622F9C225E1E3F0074EFBE /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -472,13 +472,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF836471224FC7A0001A30B7 /* ViewController.m in Sources */,
 				EF9C73162257502100A5D2D7 /* JSONMovieParser.m in Sources */,
 				EF83647C224FC7A2001A30B7 /* main.m in Sources */,
 				EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
 				EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */,
+				EF622F9D225E1E3F0074EFBE /* DetailsViewController.m in Sources */,
 				EF90504E2259F6B8000569D2 /* FavouriteCollectionViewController.m in Sources */,
 				EF8369E722529D3200DB3951 /* MoviesPresenter.m in Sources */,
 				EF8369EA2252A40300DB3951 /* AllCollectionViewController.m in Sources */,
