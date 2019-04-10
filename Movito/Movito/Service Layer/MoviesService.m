@@ -86,7 +86,7 @@
         for(int i = 0; i<trailersArray.count; i++)
         {
             Trailer* trailer = trailersArray[i];
-            [db deleteFromTrailerssTable:trailer.identifier];
+            [db deleteFromTrailersTable:trailer.identifier];
         }
     }
     [db updateMoviesTableIdentifier:movie];

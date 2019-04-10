@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import "Movie.h"
 #import "../POJO/Trailer.h"
+#import "../POJO/Review.h"
 
 @interface DatabaseAdapter : NSObject
 
@@ -34,8 +35,13 @@
 
 -(void)createTrailersTable;
 -(NSArray*)selectTrailersTableWithIdentifier:(NSInteger)identifier;
--(BOOL)deleteFromTrailerssTable:(NSString*)mIdentifier;
+-(BOOL)deleteFromTrailersTable:(NSString*)mIdentifier;
 -(BOOL)insertInTrailersTableIdentifier:(Trailer*)trailer;
+
+-(void)createReviewsTable;
+-(NSArray*)selectReviewsTableWithIdentifier:(NSInteger)identifier;
+-(BOOL)deleteFromReviewsTable:(NSString*)mIdentifier;
+-(BOOL)insertInReviewsTableIdentifier:(Review*)review;
 
 @end
 

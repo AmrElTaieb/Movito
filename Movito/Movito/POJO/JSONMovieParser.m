@@ -35,4 +35,10 @@
     return trailer;
 }
 
+-(Review*)toReviewParseJSONDictionary:(NSDictionary*)dictionary ofMovie:(Movie*)movie
+{
+    Review* review = [[Review alloc] initWithIdentifier:[dictionary objectForKey:@"id"] andAuthor:[dictionary objectForKey:@"author"] andContent:[dictionary objectForKey:@"content"] andUrl:[dictionary objectForKey:@"url"] andMovieIdentifier:[movie identifier]];
+    return review;
+}
+
 @end

@@ -91,6 +91,7 @@
     if (indexPath.row == 0)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"details" forIndexPath:indexPath];
+//        [cell setUserInteractionEnabled:NO];
         
         UILabel* movieRatingLabel = [cell viewWithTag:9];
         HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:[movieRatingLabel frame]];

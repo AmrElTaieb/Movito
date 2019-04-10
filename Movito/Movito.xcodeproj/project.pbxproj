@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */; };
+		EF02B72B225E899600745BB5 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = EF02B72A225E899600745BB5 /* Review.m */; };
 		EF622F99225E168D0074EFBE /* bar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F97225E168D0074EFBE /* bar_home.png */; };
 		EF622F9A225E168D0074EFBE /* bar_favourites.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F98225E168D0074EFBE /* bar_favourites.png */; };
 		EF622F9D225E1E3F0074EFBE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF622F9C225E1E3F0074EFBE /* DetailsViewController.m */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		759ED65EF351F18FCF850168 /* Pods-Movito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.release.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.release.xcconfig"; sourceTree = "<group>"; };
+		EF02B729225E899600745BB5 /* Review.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		EF02B72A225E899600745BB5 /* Review.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.debug.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.debug.xcconfig"; sourceTree = "<group>"; };
 		EF622F97225E168D0074EFBE /* bar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_home.png; sourceTree = "<group>"; };
 		EF622F98225E168D0074EFBE /* bar_favourites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_favourites.png; sourceTree = "<group>"; };
@@ -310,6 +313,8 @@
 				EF9C73152257502100A5D2D7 /* JSONMovieParser.m */,
 				EF7CD173225CF4C700C34F8B /* Trailer.h */,
 				EF7CD174225CF4C700C34F8B /* Trailer.m */,
+				EF02B729225E899600745BB5 /* Review.h */,
+				EF02B72A225E899600745BB5 /* Review.m */,
 			);
 			path = POJO;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				EFC2F3772257A8A60069BD27 /* Reachability.m in Sources */,
 				EFFE10F822526FD200C6ECDF /* Movie.m in Sources */,
 				EF90747A22550D7E00DC6FD8 /* DatabaseAdapter.m in Sources */,
+				EF02B72B225E899600745BB5 /* Review.m in Sources */,
 				EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */,
 				EF622F9D225E1E3F0074EFBE /* DetailsViewController.m in Sources */,
 				EF90504E2259F6B8000569D2 /* FavouriteCollectionViewController.m in Sources */,
