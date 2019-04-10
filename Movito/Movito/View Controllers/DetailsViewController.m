@@ -7,6 +7,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "../POJO/Trailer.h"
 
 @interface DetailsViewController ()
 
@@ -130,12 +131,21 @@
     {
         if (indexPath.row < (1 + _movie.trailers.count))
         {
-            printf("trailers..\n");
+            cell = [tableView dequeueReusableCellWithIdentifier:@"trailer" forIndexPath:indexPath];
+            UITextView* movieTrailerText = [cell viewWithTag:4];
+            Trailer* trailer = _movie.trailers[indexPath.row - 1];
+            [movieTrailerText setText:[trailer name]];
+            
+            UIImageView* moviePosterImage = [cell viewWithTag:3];
+            UIImage* tmpImg = [UIImage imageNamed:@"play"];
+            [moviePosterImage setImage:tmpImg];
+            
+            printf("trailer: %s\n", [[trailer name] UTF8String]);
         } else
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"review" forIndexPath:indexPath];
             printf("reviews..\n");
         }
-        cell = [tableView dequeueReusableCellWithIdentifier:@"details" forIndexPath:indexPath];
     } else if (_movie.reviews.count > 0)
     {
         if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
@@ -166,7 +176,7 @@
     {
         if (indexPath.row < (1 + _movie.trailers.count))
         {
-            return 90.0;
+            return 80.0;
         } else
         {
             return 275.0;
@@ -178,10 +188,10 @@
             return 275.0;
         } else
         {
-            return 90.0;
+            return 80.0;
         }
     }
-    return 90.0;
+    return 80.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

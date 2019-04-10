@@ -13,6 +13,7 @@
 		EF622F9D225E1E3F0074EFBE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF622F9C225E1E3F0074EFBE /* DetailsViewController.m */; };
 		EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */; };
 		EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CD174225CF4C700C34F8B /* Trailer.m */; };
+		EF81C29E225E507600458F4C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = EF81C29D225E507600458F4C /* play.png */; };
 		EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83646D224FC7A0001A30B7 /* AppDelegate.m */; };
 		EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF836472224FC7A0001A30B7 /* Main.storyboard */; };
 		EF836476224FC7A2001A30B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF836475224FC7A2001A30B7 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsPresenter.m; sourceTree = "<group>"; };
 		EF7CD173225CF4C700C34F8B /* Trailer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trailer.h; sourceTree = "<group>"; };
 		EF7CD174225CF4C700C34F8B /* Trailer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Trailer.m; sourceTree = "<group>"; };
+		EF81C29D225E507600458F4C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		EF836469224FC7A0001A30B7 /* Movito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF83646C224FC7A0001A30B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF83646D224FC7A0001A30B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		EF83646B224FC7A0001A30B7 /* Movito */ = {
 			isa = PBXGroup;
 			children = (
+				EF81C29D225E507600458F4C /* play.png */,
 				EF622F98225E168D0074EFBE /* bar_favourites.png */,
 				EF622F97225E168D0074EFBE /* bar_home.png */,
 				EF9C73182257555B00A5D2D7 /* favourite.png */,
@@ -417,6 +420,7 @@
 			files = (
 				EF90746E22550C2D00DC6FD8 /* wait.png in Resources */,
 				EF622F9A225E168D0074EFBE /* bar_favourites.png in Resources */,
+				EF81C29E225E507600458F4C /* play.png in Resources */,
 				EF836479224FC7A2001A30B7 /* LaunchScreen.storyboard in Resources */,
 				EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */,
 				EF622F99225E168D0074EFBE /* bar_home.png in Resources */,
