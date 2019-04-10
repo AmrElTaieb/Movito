@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "Movie.h"
+#import "../POJO/Trailer.h"
 
 @interface DatabaseAdapter : NSObject
 
@@ -30,6 +31,11 @@
 -(NSArray*)selectFavouritesTable;
 -(BOOL)deleteFromFavouritesTable:(NSString*)identifier;
 -(BOOL)insertInFavouritesTableIdentifier:(Movie*)movie;
+
+-(void)createTrailersTable;
+-(NSArray*)selectTrailersTableWithIdentifier:(NSInteger)identifier;
+-(BOOL)deleteFromTrailerssTable:(NSString*)mIdentifier;
+-(BOOL)insertInTrailersTableIdentifier:(Trailer*)trailer;
 
 @end
 

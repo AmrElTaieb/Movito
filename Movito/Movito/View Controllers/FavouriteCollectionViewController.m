@@ -9,6 +9,7 @@
 #import "FavouriteCollectionViewController.h"
 #import "ViewController.h"
 #import "../Presenters/FavouritesPresenter.h"
+#import "../POJO/Trailer.h"
 
 @interface FavouriteCollectionViewController ()
 
@@ -50,9 +51,18 @@
 //    printf("View Reloaded\n");
 //}
 
--(void)supplyMovieArrayWithObject:(NSArray *)movie
+-(void)supplyMovieArrayWithObject:(NSArray *)movies
 {
-    _movies = movie;
+    _movies = movies;
+    if(movies.count>0)
+    {
+        Movie* movie = movies[0];
+        if(movie.trailers.count > 0)
+        {
+            Trailer* tmpTrailer = movie.trailers[0];
+            printf("Favourites trailer %s\n", [tmpTrailer.key UTF8String]);
+        }
+    }
 }
     
 -(void)showLoading

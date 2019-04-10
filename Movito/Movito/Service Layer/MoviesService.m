@@ -52,7 +52,6 @@
         _counter++;
         if (_counter<_moviesArray.count)
         {
-//            _serviceName = @"TrailerService";
             _movie = _moviesArray[_counter];
             [self checkForNetwork];
         } else
@@ -68,15 +67,27 @@
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createMoviesTable];
     [db createFavouritesTable];
+    [db createTrailersTable];
     if([[movie isFavourite] isEqualToString:@"notFavourite"])
     {
         movie.isFavourite = @"favourite";
         [db insertInFavouritesTableIdentifier:movie];
+        NSArray* trailersArray = movie.trailers;
+        for(int i = 0; i<trailersArray.count; i++)
+        {
+            [db insertInTrailersTableIdentifier:trailersArray[i]];
+        }
     } else
     {
         movie.isFavourite = @"notFavourite";
         NSString* tmpStr = [NSString stringWithFormat:@"%ld",[movie identifier]];
+        NSArray* trailersArray = movie.trailers;
         [db deleteFromFavouritesTable:tmpStr];
+        for(int i = 0; i<trailersArray.count; i++)
+        {
+            Trailer* trailer = trailersArray[i];
+            [db deleteFromTrailerssTable:trailer.identifier];
+        }
     }
     [db updateMoviesTableIdentifier:movie];
     [_movieDetailsPresenter sendMovieToView:movie];
@@ -100,6 +111,12 @@
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createFavouritesTable];
     NSArray* favouritesArray = [db selectFavouritesTable];
+    for(int i = 0; i<favouritesArray.count; i++)
+    {
+        Movie* tmpMovie = favouritesArray[i];
+        NSArray* trailersArray = [db selectTrailersTableWithIdentifier:[tmpMovie identifier]];
+        tmpMovie.trailers = trailersArray;
+    }
     [_favouritesPresenter sendMovieToView:favouritesArray];
     printf("Service: loadFavouritesFromDatabase\n");
 }

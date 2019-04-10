@@ -85,6 +85,38 @@
     }
 }
 
+-(void)createTrailersTable
+{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docsDir = dirPaths[0];
+    
+    // Build the path to the database file
+    _databasePath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:                                  @"movies.db"]];
+    
+    
+    const char *dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        char *errMsg;
+        const char *sql_stmt =
+        "CREATE TABLE IF NOT EXISTS trailers (identifier TEXT PRIMARY KEY, name TEXT, key TEXT, movieIdentifier TEXT)";
+        
+        if (sqlite3_exec(_contactDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
+        {
+            printf("Failed to create table");
+        }
+        sqlite3_close(_contactDB);
+    } else {
+        printf("Failed to open/create database");
+    }
+}
+
 -(NSArray*)selectMoviesTable
 {
     const char *dbpath = [_databasePath UTF8String];
@@ -159,6 +191,39 @@
     return arr;
 }
 
+-(NSArray*)selectTrailersTableWithIdentifier:(NSInteger)mIdentifier
+{
+    const char *dbpath = [_databasePath UTF8String];
+    sqlite3_stmt    *statement;
+    NSMutableArray* arr = [NSMutableArray new];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:
+                              @"SELECT identifier, name, key FROM trailers WHERE movieIdentifier=\"%ld\"", mIdentifier];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_contactDB,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSString* identifier = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)];
+                NSString* name = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                NSString* key = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                Trailer *trailer = [[Trailer alloc] initWithIdentifier:identifier andName:name andKey:key andMovieIdentifier:mIdentifier];
+                
+                [arr addObject:trailer];
+//                printf("Match found\n");
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(_contactDB);
+    }
+    return arr;
+}
+
 -(BOOL)deleteFromMoviesTable:(NSString*)identifier
 {
     BOOL ret = YES;
@@ -198,6 +263,34 @@
     {
         
         NSString *deleteSQL = [NSString stringWithFormat: @"DELETE FROM favourites WHERE identifier=\"%@\"", identifier];
+        
+        const char *delete_stmt = [deleteSQL UTF8String];
+        sqlite3_prepare_v2(_contactDB, delete_stmt,
+                           -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+//            printf("favourite deleted\n");
+        } else {
+//            printf("Failed to delete favourite\n");
+            ret = NO;
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_contactDB);
+    }
+    return ret;
+}
+
+-(BOOL)deleteFromTrailerssTable:(NSString*)identifier
+{
+    BOOL ret = YES;
+    sqlite3_stmt    *statement;
+    const char *dbpath;
+    dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        
+        NSString *deleteSQL = [NSString stringWithFormat: @"DELETE FROM trailers WHERE identifier=\"%@\"", identifier];
         
         const char *delete_stmt = [deleteSQL UTF8String];
         sqlite3_prepare_v2(_contactDB, delete_stmt,
@@ -301,6 +394,34 @@
         NSString *insertSQL;
         insertSQL = [NSString stringWithFormat:
                      @"INSERT INTO favourites (identifier, posterPath, originalTitle, overview, voteAverage, releaseDate, isFavourite) VALUES (\"%ld\", \"%@\", \"%@\", \"%@\", \"%lf\", \"%@\", \"%@\")", [movie identifier], [movie posterPath], [movie originalTitle], [movie overview], [movie voteAverage], [movie releaseDate], [movie isFavourite]];
+        
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(_contactDB, insert_stmt,
+                           -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+//            printf("favourite added\n");
+        } else {
+//            printf("Failed to add favourite\n");
+            ret = NO;
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_contactDB);
+    }
+    return ret;
+}
+
+-(BOOL)insertInTrailersTableIdentifier:(Trailer*)trailer
+{
+    BOOL ret = YES;
+    sqlite3_stmt    *statement;
+    const char *dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        NSString *insertSQL;
+        insertSQL = [NSString stringWithFormat:
+                     @"INSERT INTO trailers (identifier, name, key, movieIdentifier) VALUES (\"%@\", \"%@\", \"%@\", \"%ld\")", [trailer identifier], [trailer name], [trailer key], [trailer movieIdentifier]];
         
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_contactDB, insert_stmt,
