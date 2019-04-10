@@ -202,11 +202,11 @@
             </objects>
             <point key="canvasLocation" x="2561" y="137"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="bvH-Yo-1uA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cnz-C5-Knu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nnA-z8-6mf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="bar_home.png" id="nnA-z8-6mf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0w0-Aj-WDL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -221,11 +221,11 @@
             </objects>
             <point key="canvasLocation" x="3455.1999999999998" y="544.67766116941539"/>
         </scene>
-        <!--Item-->
+        <!--Favourites-->
         <scene sceneID="D3s-IG-UUJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3i7-0c-M2p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eQt-xS-u9u"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="bar_favourites.png" id="eQt-xS-u9u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RoG-KW-W93">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -241,4 +241,8 @@
             <point key="canvasLocation" x="3453.5999999999999" y="-188.45577211394306"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bar_favourites.png" width="50" height="50"/>
+        <image name="bar_home.png" width="50" height="50"/>
+    </resources>
 </document>

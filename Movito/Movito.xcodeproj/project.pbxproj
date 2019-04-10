@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01CAB9095AE25CEF3038DD59 /* libPods-Movito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */; };
+		EF622F99225E168D0074EFBE /* bar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F97225E168D0074EFBE /* bar_home.png */; };
+		EF622F9A225E168D0074EFBE /* bar_favourites.png in Resources */ = {isa = PBXBuildFile; fileRef = EF622F98225E168D0074EFBE /* bar_favourites.png */; };
 		EF7A4F122259D5C7007671E8 /* MovieDetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */; };
 		EF7CD175225CF4C700C34F8B /* Trailer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CD174225CF4C700C34F8B /* Trailer.m */; };
 		EF83646E224FC7A0001A30B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF83646D224FC7A0001A30B7 /* AppDelegate.m */; };
@@ -56,6 +58,8 @@
 		4B2ECA22C2A21B08DC534DFB /* libPods-Movito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movito.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		759ED65EF351F18FCF850168 /* Pods-Movito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.release.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.release.xcconfig"; sourceTree = "<group>"; };
 		EF5FF2A34BA8F121B8EB024B /* Pods-Movito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movito.debug.xcconfig"; path = "Target Support Files/Pods-Movito/Pods-Movito.debug.xcconfig"; sourceTree = "<group>"; };
+		EF622F97225E168D0074EFBE /* bar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_home.png; sourceTree = "<group>"; };
+		EF622F98225E168D0074EFBE /* bar_favourites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_favourites.png; sourceTree = "<group>"; };
 		EF7A4F102259D5C7007671E8 /* MovieDetailsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsPresenter.h; sourceTree = "<group>"; };
 		EF7A4F112259D5C7007671E8 /* MovieDetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsPresenter.m; sourceTree = "<group>"; };
 		EF7CD173225CF4C700C34F8B /* Trailer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trailer.h; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 		EF83646B224FC7A0001A30B7 /* Movito */ = {
 			isa = PBXGroup;
 			children = (
+				EF622F98225E168D0074EFBE /* bar_favourites.png */,
+				EF622F97225E168D0074EFBE /* bar_home.png */,
 				EF9C73182257555B00A5D2D7 /* favourite.png */,
 				EF9C73172257555A00A5D2D7 /* notFavourite.png */,
 				EF90747722550D5200DC6FD8 /* DataBase */,
@@ -410,8 +416,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF90746E22550C2D00DC6FD8 /* wait.png in Resources */,
+				EF622F9A225E168D0074EFBE /* bar_favourites.png in Resources */,
 				EF836479224FC7A2001A30B7 /* LaunchScreen.storyboard in Resources */,
 				EF9C731A2257555B00A5D2D7 /* favourite.png in Resources */,
+				EF622F99225E168D0074EFBE /* bar_home.png in Resources */,
 				EF9C73192257555B00A5D2D7 /* notFavourite.png in Resources */,
 				EF836476224FC7A2001A30B7 /* Assets.xcassets in Resources */,
 				EF836474224FC7A0001A30B7 /* Main.storyboard in Resources */,
