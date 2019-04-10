@@ -135,10 +135,11 @@
             UITextView* movieTrailerText = [cell viewWithTag:4];
             Trailer* trailer = _movie.trailers[indexPath.row - 1];
             [movieTrailerText setText:[trailer name]];
+            [movieTrailerText setUserInteractionEnabled:NO];
             
-            UIImageView* moviePosterImage = [cell viewWithTag:3];
+            UIImageView* playImage = [cell viewWithTag:3];
             UIImage* tmpImg = [UIImage imageNamed:@"play"];
-            [moviePosterImage setImage:tmpImg];
+            [playImage setImage:tmpImg];
             
             printf("trailer: %s\n", [[trailer name] UTF8String]);
         } else
@@ -204,7 +205,7 @@
     {
         if (indexPath.row < (1 + _movie.trailers.count))
         {
-            return 100.0;
+            return 90.0;
         } else
         {
             return 270.0;
@@ -216,10 +217,29 @@
             return 270.0;
         } else
         {
-            return 100.0;
+            return 90.0;
         }
     }
-    return 100.0;
+    return 90.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(_movie.trailers.count > 0)
+    {
+        if (indexPath.row < (1 + _movie.trailers.count) &&
+            indexPath.row > 0)
+        {
+            Trailer* trailer = _movie.trailers[indexPath.row-1];
+            NSString* tmpStr = [NSString stringWithFormat:@"https://www.youtube.com/watch?v=%@",trailer.key];
+            printf("%s\n", [tmpStr UTF8String]);
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tmpStr] options:@{} completionHandler:^(BOOL success) {
+                if (success) {
+                    printf("trailer on youtube\n");
+                }
+            }];
+        }
+    }
 }
 
 /*
