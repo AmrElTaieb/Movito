@@ -113,7 +113,7 @@
                 Movie *movie = [[Movie alloc] initWithIdentifier:[identifier integerValue] andPosterPath:posterPath andOriginalTitle:originalTitle andOverview:overview andVoteAverage:[voteAverage doubleValue] andReleaseDate:releaseDate andIsFavourite:isFavourite];
                 
                 [arr addObject:movie];
-                printf("Match found\n");
+//                printf("Match found\n");
             }
             sqlite3_finalize(statement);
         }
@@ -150,7 +150,7 @@
                 Movie *movie = [[Movie alloc] initWithIdentifier:[identifier integerValue] andPosterPath:posterPath andOriginalTitle:originalTitle andOverview:overview andVoteAverage:[voteAverage doubleValue] andReleaseDate:releaseDate andIsFavourite:isFavourite];
                 
                 [arr addObject:movie];
-                printf("Match found\n");
+//                printf("Match found\n");
             }
             sqlite3_finalize(statement);
         }
@@ -176,9 +176,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("movie deleted\n");
+//            printf("movie deleted\n");
         } else {
-            printf("Failed to delete movie\n");
+//            printf("Failed to delete movie\n");
             ret = NO;
         }
         sqlite3_finalize(statement);
@@ -204,9 +204,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("favourite deleted\n");
+//            printf("favourite deleted\n");
         } else {
-            printf("Failed to delete favourite\n");
+//            printf("Failed to delete favourite\n");
             ret = NO;
         }
         sqlite3_finalize(statement);
@@ -233,9 +233,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("movie deleted\n");
+//            printf("movies deleted\n");
         } else {
-            printf("Failed to delete movie\n");
+//            printf("Failed to delete movies\n");
             ret = NO;
         }
         sqlite3_finalize(statement);
@@ -261,9 +261,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("movie added\n");
+//            printf("movie added\n");
         } else {
-            printf("Failed to add movie\n");
+//            printf("Failed to add movie\n");
             ret = NO;
         }
         sqlite3_finalize(statement);
@@ -307,9 +307,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("favourite added\n");
+//            printf("favourite added\n");
         } else {
-            printf("Failed to add favourite\n");
+//            printf("Failed to add favourite\n");
             ret = NO;
         }
         sqlite3_finalize(statement);
@@ -336,9 +336,9 @@
                            -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            printf("movie updated\n");
+//            printf("movie updated\n");
         } else {
-            printf("Failed to update movie\n");
+//            printf("Failed to update movie\n");
             ret = NO;
         }
         sqlite3_finalize(statement);

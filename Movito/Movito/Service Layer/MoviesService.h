@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NetworkObserver.h"
 #import "ServiceProtocol.h"
-#import "MovieContract.h"
+#import "../MVP Movies/MovieContract.h"
 #import "NetworkManager.h"
 
 @interface MoviesService : NSObject <NetworkObserver , ServiceProtocol , IMovieManager>
@@ -17,6 +17,11 @@
 @property id<IMoviesPresenter> moviesPresenter;
 @property id<IMovieDetailsPresenter> movieDetailsPresenter;
 @property id<IFavouritesPresenter> favouritesPresenter;
+
+@property int counter;
+@property NSString* serviceName;
+@property NSArray* moviesArray;
+@property Movie* movie;
 
 @end
 

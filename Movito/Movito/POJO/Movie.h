@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Object interfaces
 
 @interface Movie : NSObject
+@property (nonatomic, strong)         NSArray *trailers;
+@property (nonatomic, strong)         NSArray *reviews;
 @property (nonatomic, copy)           NSString *isFavourite;
 @property (nonatomic, assign)         BOOL isAdult;
 @property (nonatomic, copy)           NSString *backdropPath;

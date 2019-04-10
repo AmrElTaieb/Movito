@@ -27,6 +27,12 @@
     [movieService getMovie:self];
 }
 
+//-(void) getTrailers: (Movie*) movie
+//{
+//    TrailersService *trailerService = [TrailersService new];
+//    [trailerService getTrailer:movie];
+//}
+
 -(void)onSuccess:(NSArray *)movie
 {
     [_movieCollectionView supplyMovieArrayWithObject:movie];

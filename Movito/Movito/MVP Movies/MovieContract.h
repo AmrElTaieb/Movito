@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseContract.h"
 #import "Movie.h"
+//#import "../Service Layer/MoviesService.h"
 
 
 @protocol IMovieCollectionView <IBaseView>
@@ -35,6 +36,7 @@
 @protocol IMoviesPresenter <NSObject>
 
 -(void) getMovie;
+//-(void) getTrailers : (Movie*) movie;
 -(void) onSuccess : (NSArray*) movie;
 -(void) onFail : (NSString*) errorMessage;
 //-(void) updateFavouritesService;
@@ -66,8 +68,3 @@
 
 @end
 
-@protocol ITrailerManager <NSObject>
-
--(void) getTrailer : (Movie*) movie;
-
-@end

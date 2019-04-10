@@ -27,7 +27,6 @@
     _favouritesFlag = NO;
     MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
     [moviePresenter getMovie];
-    self.tabBarController.delegate = self;
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -72,6 +71,9 @@
 {
     printf("hide Loading\n");
     _loadFlag = YES;
+    Movie* tmpMovie = _movies[0];
+    Trailer* tmpTrailer = tmpMovie.trailers[0];
+    printf("Trailer: %s\n", [tmpTrailer.key UTF8String]);
     [self.collectionView reloadData];
 }
 
@@ -107,17 +109,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"all" forIndexPath:indexPath];
-    
-//    if(cell == nil)
-//    {
-//        cell = [[UICollectionView alloc] in];
-//    }
-    
     // Configure the cell
     UILabel* myLabel = [cell viewWithTag:1];
     UIImageView* myImage = [cell viewWithTag:2];
     Movie* movie = _movies[indexPath.item];
-//    printf("cellForItemAtIndexPath flag: YES/NO\n");
     if(_loadFlag)
     {
 //        printf("cellForItemAtIndexPath flag: YES\n");

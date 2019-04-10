@@ -31,8 +31,7 @@
 
 -(Trailer*)toTrailerParseJSONDictionary:(NSDictionary*)dictionary ofMovie:(Movie*)movie
 {
-    Trailer* trailer;
-    
+    Trailer* trailer = [[Trailer alloc] initWithIdentifier:[dictionary objectForKey:@"id"] andName:[dictionary objectForKey:@"name"] andKey:[dictionary objectForKey:@"key"] andMovieIdentifier:[movie identifier]];
     return trailer;
 }
 

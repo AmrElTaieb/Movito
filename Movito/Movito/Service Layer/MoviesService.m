@@ -17,11 +17,14 @@
 -(void)getMovie:(id<IMoviesPresenter>)moviePresenter
 {
     _moviesPresenter = moviePresenter;
+    _counter = 0;
+    _serviceName = @"MovieService";
     [self checkForNetwork];
 }
 
 -(void)handleSuccessWithJSONData:(id)jsonData :(NSString *)serviceName{
-    if ([serviceName isEqualToString:@"MovieService"]) {
+    if ([serviceName isEqualToString:@"MovieService"])
+    {
         NSDictionary *dict = (NSDictionary*)jsonData;
         NSArray *moviesDictArray = [dict objectForKey:@"results"];
         NSMutableArray* moviesArray = [NSMutableArray new];
@@ -33,17 +36,31 @@
         {
             [moviesArray addObject:[parser toMovieParseJSONDictionary:moviesDictArray[i]]];
             [db insertInMoviesTableIdentifier:moviesArray[i]];
-            //
         }
         [self loadMoviesFromDatabase];
+    } else if ([serviceName isEqualToString:@"TrailerService"])
+    {
+        NSDictionary *dict = (NSDictionary*)jsonData;
+        NSArray *trailersDictArray = [dict objectForKey:@"results"];
+        NSMutableArray* trailersArray = [NSMutableArray new];
+        JSONMovieParser* parser = [JSONMovieParser new];
+        for(int i = 0; i<trailersDictArray.count; i++)
+        {
+            [trailersArray addObject:[parser toTrailerParseJSONDictionary:trailersDictArray[i] ofMovie:_movie]];
+        }
+        [_movie setTrailers:trailersArray];
+        _counter++;
+        if (_counter<_moviesArray.count)
+        {
+//            _serviceName = @"TrailerService";
+            _movie = _moviesArray[_counter];
+            [self checkForNetwork];
+        } else
+        {
+            [_moviesPresenter onSuccess:_moviesArray];
+        }
     }
 }
-
-//-(void) updateFavouritesPresenter
-//{
-//    printf("Service: updateFavouritesPresenter\n");
-//    [_favouritesPresenter updateFavouritesView];
-//}
 
 -(void) toggleFavouriteStatus : (Movie*) movie forDetailsPresenter : (id<IMovieDetailsPresenter>) movieDetailsPresenter
 {
@@ -70,26 +87,19 @@
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createMoviesTable];
     NSArray* moviesArray = [db selectMoviesTable];
-    [_moviesPresenter onSuccess:moviesArray];
+    _serviceName = @"TrailerService";
+    _moviesArray = moviesArray;
+    _movie = moviesArray[_counter];
+    [self checkForNetwork];
     printf("Service: loadMoviesFromDatabase\n");
 }
-    
+
 -(void)loadFavouritesFromDatabase:(id<IFavouritesPresenter>)favouritesPresenter
 {
     _favouritesPresenter = favouritesPresenter;
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
     [db createFavouritesTable];
     NSArray* favouritesArray = [db selectFavouritesTable];
-//    for(int i = 0; i<favouritesArray.count; i++)
-//    {
-//        Movie* tmpMovie = favouritesArray[i];
-//        if([tmpMovie.isFavourite isEqualToString:@"notFavourite"])
-//        {
-//            [favouritesArray removeObjectAtIndex:i];
-////            printf("notFavourite: %s\n", [tmpMovie.originalTitle UTF8String]);
-//            i--;
-//        }
-//    }
     [_favouritesPresenter sendMovieToView:favouritesArray];
     printf("Service: loadFavouritesFromDatabase\n");
 }
@@ -104,7 +114,16 @@
     // check if we've got network connectivity
     Reachability *myNetwork = [Reachability reachabilityWithHostname:@"themoviedb.org"];
     NetworkStatus myStatus = [myNetwork currentReachabilityStatus];
-
+    printf("Service: %s\n", [_serviceName UTF8String]);
+    NSString* tmpStr;
+    if ([_serviceName isEqualToString:@"MovieService"])
+    {
+        tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+    } else if ([_serviceName isEqualToString:@"TrailerService"])
+    {
+        tmpStr = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/videos?api_key=07c9e79d1ef54c1c2f9b7cb371f51725", (long)[_movie identifier]];
+    }
+    
     switch (myStatus) {
         case NotReachable:
             printf("There's no internet connection at all. Getting data from database..\n");
@@ -117,35 +136,12 @@
 
         case ReachableViaWiFi:
             printf("We have WiFi\n");
-            [NetworkManager connectGetToURL:@"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725" serviceName:@"MovieService" serviceProtocol:self];
+            [NetworkManager connectGetToURL:tmpStr serviceName:_serviceName serviceProtocol:self];
             break;
 
         default:
             break;
     }
-//    AFNetworkReachabilityManager *reachability = [AFNetworkReachabilityManager sharedManager];
-//    [reachability setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        switch (status) {
-//            case AFNetworkReachabilityStatusReachableViaWWAN:
-//                printf("We have a 3G connection\n");
-//                break;
-//            case AFNetworkReachabilityStatusReachableViaWiFi:
-//                printf("We have WiFi\n");
-//                [NetworkManager connectGetToURL:@"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725" serviceName:@"MovieService" serviceProtocol:self];
-//                break;
-//            case AFNetworkReachabilityStatusUnknown:
-//                printf("Connection status unknown. Getting data from database..\n");
-//                [self loadFromDatabase];
-//                break;
-//            case AFNetworkReachabilityStatusNotReachable:
-//                printf("There's no internet connection at all. Getting data from database..\n");
-//                [self loadFromDatabase];
-//                break;
-//            default:
-//                printf("Hopa\n");
-//                break;
-//        }
-//    }];
 }
 
 @end
