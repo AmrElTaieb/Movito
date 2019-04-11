@@ -157,7 +157,7 @@
             UILabel* movieReviewLabel = [cell viewWithTag:2];
             [movieReviewLabel setText:[review author]];
             
-            printf("reviews..\n");
+            printf("reviews: %s\n", [[review author] UTF8String]);
         }
     } else if (_movie.reviews.count > 0)
     {
@@ -178,6 +178,8 @@
         
         UILabel* movieReviewLabel = [cell viewWithTag:2];
         [movieReviewLabel setText:[review author]];
+        
+        printf("reviews: %s\n", [[review author] UTF8String]);
     } else
     {
         printf("reviews..\n");
@@ -201,13 +203,13 @@
             return 80.0;
         } else
         {
-            return 275.0;
+            return 300.0;
         }
     } else if (_movie.reviews.count > 0)
     {
         if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
         {
-            return 275.0;
+            return 300.0;
         } else
         {
             return 80.0;
@@ -229,13 +231,13 @@
             return 90.0;
         } else
         {
-            return 270.0;
+            return 300.0;
         }
     } else if (_movie.reviews.count > 0)
     {
         if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
         {
-            return 270.0;
+            return 300.0;
         } else
         {
             return 90.0;

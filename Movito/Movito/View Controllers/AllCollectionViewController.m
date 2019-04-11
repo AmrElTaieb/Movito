@@ -24,9 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _loadFlag = NO;
-    _favouritesFlag = NO;
-    MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
-    [moviePresenter getMovie];
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -34,6 +31,16 @@
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
+    [moviePresenter getMovie];
+    
+    [self.collectionView reloadData];
 }
 
 //-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController

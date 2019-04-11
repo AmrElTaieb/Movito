@@ -30,13 +30,14 @@
         NSArray *moviesDictArray = [dict objectForKey:@"results"];
         NSMutableArray* moviesArray = [NSMutableArray new];
         JSONMovieParser* parser = [JSONMovieParser new];
-        DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
-        [db createMoviesTable];
-        [db emptyMoviesTable];
+//        DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
+//        [db createMoviesTable];
+//        [db emptyMoviesTable];
         for(int i = 0; i<moviesDictArray.count; i++)
         {
             [moviesArray addObject:[parser toMovieParseJSONDictionary:moviesDictArray[i]]];
-            [db insertInMoviesTableIdentifier:moviesArray[i]];
+//            [db insertInMoviesTableIdentifier:moviesArray[i]];
+            _moviesArray = moviesArray;
         }
         [self loadMoviesFromDatabase];
     } else if ([serviceName isEqualToString:@"TrailerService"])
@@ -132,11 +133,23 @@
 -(void)loadMoviesFromDatabase
 {
     DatabaseAdapter* db = [DatabaseAdapter sharedInstance];
-    [db createMoviesTable];
-    NSArray* moviesArray = [db selectMoviesTable];
+//    [db createMoviesTable];
+    [db createFavouritesTable];
+//    NSArray* moviesArray = [db selectMoviesTable];
+    NSArray* favouritesArray = [db selectFavouritesTable];
+    for (int i = 0; i<favouritesArray.count; i++) {
+        for (int j = 0; j<_moviesArray.count; j++) {
+            Movie* favMovie = favouritesArray[i];
+            Movie* movie = _moviesArray[j];
+            if(favMovie.identifier == movie.identifier)
+            {
+                movie.isFavourite = @"favourite";
+            }
+        }
+    }
     _serviceName = @"TrailerService";
-    _moviesArray = moviesArray;
-    _movie = moviesArray[_counter];
+//    _moviesArray = moviesArray;
+    _movie = _moviesArray[_counter];
     [self checkForNetwork];
     printf("Service: loadMoviesFromDatabase\n");
 }
@@ -181,25 +194,25 @@
     {
         tmpStr = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/reviews?api_key=07c9e79d1ef54c1c2f9b7cb371f51725&language=en-US&page=1", (long)[_movie identifier]];
     }
-    
-    switch (myStatus) {
-        case NotReachable:
-            printf("There's no internet connection at all. Getting data from database..\n");
-            [self loadMoviesFromDatabase];
-            break;
-
-        case ReachableViaWWAN:
-            printf("We have a 3G connection\n");
-            break;
-
-        case ReachableViaWiFi:
-            printf("We have WiFi\n");
-            [NetworkManager connectGetToURL:tmpStr serviceName:_serviceName serviceProtocol:self];
-            break;
-
-        default:
-            break;
-    }
+    [NetworkManager connectGetToURL:tmpStr serviceName:_serviceName serviceProtocol:self];
+//    switch (myStatus) {
+//        case NotReachable:
+//            printf("There's no internet connection at all. Getting data from database..\n");
+//            [self loadMoviesFromDatabase];
+//            break;
+//
+//        case ReachableViaWWAN:
+//            printf("We have a 3G connection\n");
+//            break;
+//
+//        case ReachableViaWiFi:
+//            printf("We have WiFi\n");
+//            [NetworkManager connectGetToURL:tmpStr serviceName:_serviceName serviceProtocol:self];
+//            break;
+//
+//        default:
+//            break;
+//    }
 }
 
 @end
