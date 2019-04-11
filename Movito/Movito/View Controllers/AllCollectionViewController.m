@@ -32,14 +32,17 @@
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    PFNavigationDropdownMenu *menuView = [[PFNavigationDropdownMenu alloc]initWithFrame:CGRectMake(0, 0, 300, 44)title:items.firstObjects items:items containerView:self.view];
+    NSArray* items = @[@"Popular Movies", @" Most Rated Movies"];
+    PFNavigationDropdownMenu *menuView = [[PFNavigationDropdownMenu alloc]initWithFrame:CGRectMake(0, 0, 300, 44)title:items.firstObject items:items containerView:self.view];
+    [menuView setArrowImage:[UIImage imageNamed:@"arrow"]];
     
     menuView.didSelectItemAtIndexHandler = ^(NSUInteger indexPath){
         NSLog(@"Did select item at index: %ld", indexPath);
-        self.selectedCellLabel.text = items[indexPath];
+        self.title = items[indexPath];
     };
+    self.navigationItem.titleView = menuView;
     
-    self.navigationItem.title = @"All Movies";
+//    self.navigationItem.title = @"All Movies";
 }
 
 - (void)viewWillAppear:(BOOL)animated
