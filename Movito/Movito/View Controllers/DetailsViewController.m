@@ -8,6 +8,7 @@
 
 #import "DetailsViewController.h"
 #import "../POJO/Trailer.h"
+#import "../POJO/Review.h"
 
 @interface DetailsViewController ()
 
@@ -146,18 +147,37 @@
         } else
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"review" forIndexPath:indexPath];
+            [cell setUserInteractionEnabled:NO];
+            
+            UITextView* movieReviewText = [cell viewWithTag:1];
+            Review* review = _movie.reviews[indexPath.row - _movie.trailers.count - 1];
+            [movieReviewText setText:[review content]];
+            [movieReviewText setUserInteractionEnabled:NO];
+            
+            UILabel* movieReviewLabel = [cell viewWithTag:2];
+            [movieReviewLabel setText:[review author]];
+            
             printf("reviews..\n");
         }
     } else if (_movie.reviews.count > 0)
     {
-        if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
-        {
-            printf("reviews..\n");
-        } else
-        {
-            printf("reviews..\n");
-        }
-        cell = [tableView dequeueReusableCellWithIdentifier:@"trailer" forIndexPath:indexPath];
+//        if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
+//        {
+//            printf("reviews..\n");
+//        } else
+//        {
+//            printf("reviews..\n");
+//        }
+        cell = [tableView dequeueReusableCellWithIdentifier:@"review" forIndexPath:indexPath];
+        [cell setUserInteractionEnabled:NO];
+        
+        UITextView* movieReviewText = [cell viewWithTag:1];
+        Review* review = _movie.reviews[indexPath.row - _movie.trailers.count - 1];
+        [movieReviewText setText:[review content]];
+        [movieReviewText setUserInteractionEnabled:NO];
+        
+        UILabel* movieReviewLabel = [cell viewWithTag:2];
+        [movieReviewLabel setText:[review author]];
     } else
     {
         printf("reviews..\n");
