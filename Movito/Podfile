@@ -7,4 +7,6 @@ target 'Movito' do
 
     pod 'HCSStarRatingView', '~> 1.5'
 
+    pod 'PFNavigationDropdownMenu'
+
 end

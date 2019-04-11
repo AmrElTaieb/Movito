@@ -30,6 +30,7 @@
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Favourite Movies";
 }
 
 - (void)viewWillAppear:(BOOL)animated

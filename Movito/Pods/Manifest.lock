@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - HCSStarRatingView (1.5)
+  - PFNavigationDropdownMenu (0.1.1)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -28,19 +29,22 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - HCSStarRatingView (~> 1.5)
+  - PFNavigationDropdownMenu
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - HCSStarRatingView
+    - PFNavigationDropdownMenu
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
+  PFNavigationDropdownMenu: 135e0f460958407661cc95e201223c1fad79f543
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: cbb420c20a54d59f02a00a0c134057866c3f5d23
+PODFILE CHECKSUM: 499b112560f83daeaba75e1d0e4372d952bc35b1
 
 COCOAPODS: 1.6.1

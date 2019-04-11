@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "796ECED41E627B1D2B3900D0794585CD"
-               BuildableName = "libSDWebImage.a"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "99E86FEA9FEF23C883D2665EECD134ED"
+               BuildableName = "libPFNavigationDropdownMenu.a"
+               BlueprintName = "PFNavigationDropdownMenu"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
