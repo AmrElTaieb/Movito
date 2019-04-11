@@ -71,9 +71,12 @@
 {
     printf("hide Loading\n");
     _loadFlag = YES;
-    Movie* tmpMovie = _movies[0];
-    Trailer* tmpTrailer = tmpMovie.trailers[0];
-    printf("Trailer: %s\n", [tmpTrailer.key UTF8String]);
+//    Movie* tmpMovie = _movies[2];
+//    if(tmpMovie.reviews.count > 0)
+//    {
+//        Review* tmpReview = tmpMovie.reviews[0];
+//        printf("Review: %s\n", [tmpReview.author UTF8String]);
+//    }
     [self.collectionView reloadData];
 }
 

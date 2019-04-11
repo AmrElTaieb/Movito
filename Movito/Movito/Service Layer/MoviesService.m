@@ -22,7 +22,8 @@
     [self checkForNetwork];
 }
 
--(void)handleSuccessWithJSONData:(id)jsonData :(NSString *)serviceName{
+-(void)handleSuccessWithJSONData:(id)jsonData :(NSString *)serviceName
+{
     if ([serviceName isEqualToString:@"MovieService"])
     {
         NSDictionary *dict = (NSDictionary*)jsonData;
@@ -56,6 +57,29 @@
             [self checkForNetwork];
         } else
         {
+            _counter = 0;
+            _serviceName = @"ReviewService";
+            _movie = _moviesArray[_counter];
+            [self checkForNetwork];
+        }
+    } else if ([serviceName isEqualToString:@"ReviewService"])
+    {
+        NSDictionary *dict = (NSDictionary*)jsonData;
+        NSArray *reviewsDictArray = [dict objectForKey:@"results"];
+        NSMutableArray* reviewsArray = [NSMutableArray new];
+        JSONMovieParser* parser = [JSONMovieParser new];
+        for(int i = 0; i<reviewsDictArray.count; i++)
+        {
+            [reviewsArray addObject:[parser toReviewParseJSONDictionary:reviewsDictArray[i] ofMovie:_movie]];
+        }
+        [_movie setReviews:reviewsArray];
+        _counter++;
+        if (_counter<_moviesArray.count)
+        {
+            _movie = _moviesArray[_counter];
+            [self checkForNetwork];
+        } else
+        {
             [_moviesPresenter onSuccess:_moviesArray];
         }
     }
@@ -68,6 +92,7 @@
     [db createMoviesTable];
     [db createFavouritesTable];
     [db createTrailersTable];
+    [db createReviewsTable];
     if([[movie isFavourite] isEqualToString:@"notFavourite"])
     {
         movie.isFavourite = @"favourite";
@@ -77,16 +102,27 @@
         {
             [db insertInTrailersTableIdentifier:trailersArray[i]];
         }
+        NSArray* reviewsArray = movie.reviews;
+        for(int i = 0; i<reviewsArray.count; i++)
+        {
+            [db insertInReviewsTableIdentifier:reviewsArray[i]];
+        }
     } else
     {
         movie.isFavourite = @"notFavourite";
         NSString* tmpStr = [NSString stringWithFormat:@"%ld",[movie identifier]];
-        NSArray* trailersArray = movie.trailers;
         [db deleteFromFavouritesTable:tmpStr];
+        NSArray* trailersArray = movie.trailers;
         for(int i = 0; i<trailersArray.count; i++)
         {
             Trailer* trailer = trailersArray[i];
             [db deleteFromTrailersTable:trailer.identifier];
+        }
+        NSArray* reviewsArray = movie.reviews;
+        for(int i = 0; i<reviewsArray.count; i++)
+        {
+            Review* review = reviewsArray[i];
+            [db deleteFromTrailersTable:review.identifier];
         }
     }
     [db updateMoviesTableIdentifier:movie];
@@ -116,6 +152,8 @@
         Movie* tmpMovie = favouritesArray[i];
         NSArray* trailersArray = [db selectTrailersTableWithIdentifier:[tmpMovie identifier]];
         tmpMovie.trailers = trailersArray;
+        NSArray* reviewsArray = [db selectReviewsTableWithIdentifier:[tmpMovie identifier]];
+        tmpMovie.reviews = reviewsArray;
     }
     [_favouritesPresenter sendMovieToView:favouritesArray];
     printf("Service: loadFavouritesFromDatabase\n");
@@ -139,6 +177,9 @@
     } else if ([_serviceName isEqualToString:@"TrailerService"])
     {
         tmpStr = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/videos?api_key=07c9e79d1ef54c1c2f9b7cb371f51725", (long)[_movie identifier]];
+    } else if ([_serviceName isEqualToString:@"ReviewService"])
+    {
+        tmpStr = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/reviews?api_key=07c9e79d1ef54c1c2f9b7cb371f51725&language=en-US&page=1", (long)[_movie identifier]];
     }
     
     switch (myStatus) {

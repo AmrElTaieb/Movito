@@ -10,7 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MovieContract.h"
 #import "MoviesPresenter.h"
-#import "../POJO/Trailer.h"
+#import "../POJO/Review.h"
 
 @interface AllCollectionViewController : UICollectionViewController <IMovieCollectionView>
 
