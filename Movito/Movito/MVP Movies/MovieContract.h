@@ -34,7 +34,7 @@
 
 @protocol IMoviesPresenter <NSObject>
 
--(void) getMovie;
+-(void) getMovie:(BOOL)isByPopularity;
 //-(void) getTrailers : (Movie*) movie;
 -(void) onSuccess : (NSArray*) movie;
 -(void) onFail : (NSString*) errorMessage;

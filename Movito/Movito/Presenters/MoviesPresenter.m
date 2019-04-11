@@ -19,10 +19,11 @@
     return self;
 }
 
--(void)getMovie
+-(void)getMovie:(BOOL)isByPopularity
 {
     [_movieCollectionView showLoading];
     MoviesService *movieService = [MoviesService new];
+    movieService.isByPopularity = isByPopularity;
     [movieService getMovie:self];
 }
 

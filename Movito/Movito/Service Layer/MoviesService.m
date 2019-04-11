@@ -19,6 +19,13 @@
     _moviesPresenter = moviePresenter;
     _counter = 0;
     _serviceName = @"MovieService";
+    if(_isByPopularity)
+    {
+        printf("Service: YES\n");
+    } else
+    {
+        printf("Service: NO\n");
+    }
     [self checkForNetwork];
 }
 
@@ -182,11 +189,18 @@
     // check if we've got network connectivity
     Reachability *myNetwork = [Reachability reachabilityWithHostname:@"themoviedb.org"];
     NetworkStatus myStatus = [myNetwork currentReachabilityStatus];
-    printf("Service: %s\n", [_serviceName UTF8String]);
+//    printf("Service: %s\n", [_serviceName UTF8String]);
     NSString* tmpStr;
     if ([_serviceName isEqualToString:@"MovieService"])
     {
-        tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+        if (_isByPopularity) {
+            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+            printf("check: popularity\n");
+        } else
+        {
+            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+            printf("check: vote_average\n");
+        }
     } else if ([_serviceName isEqualToString:@"TrailerService"])
     {
         tmpStr = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/videos?api_key=07c9e79d1ef54c1c2f9b7cb371f51725", (long)[_movie identifier]];

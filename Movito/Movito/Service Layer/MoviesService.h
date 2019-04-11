@@ -22,6 +22,7 @@
 @property NSString* serviceName;
 @property NSArray* moviesArray;
 @property Movie* movie;
+@property BOOL isByPopularity;
 
 @end
 

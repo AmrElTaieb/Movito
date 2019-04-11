@@ -31,7 +31,7 @@
     // Register cell classes
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.    
     NSArray* items = @[@"Popular Movies", @" Most Rated Movies"];
     PFNavigationDropdownMenu *menuView = [[PFNavigationDropdownMenu alloc]initWithFrame:CGRectMake(0, 0, 300, 44)title:items.firstObject items:items containerView:self.view];
     [menuView setArrowImage:[UIImage imageNamed:@"arrow"]];
@@ -39,6 +39,21 @@
     menuView.didSelectItemAtIndexHandler = ^(NSUInteger indexPath){
         NSLog(@"Did select item at index: %ld", indexPath);
         self.title = items[indexPath];
+//        [self.parentViewController viewWillAppear:NO];
+        MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
+        if (indexPath == 0)
+        {
+            self->_movies = nil;
+            [self.collectionView reloadData];
+            [moviePresenter getMovie:YES];
+        } else
+        {
+            self->_movies = nil;
+            [self.collectionView reloadData];
+            [moviePresenter getMovie:NO];
+        }
+        
+        [self.collectionView reloadData];
     };
     self.navigationItem.titleView = menuView;
     
@@ -50,7 +65,7 @@
     [super viewWillAppear:animated];
     
     MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
-    [moviePresenter getMovie];
+    [moviePresenter getMovie:YES];
     
     [self.collectionView reloadData];
 }
