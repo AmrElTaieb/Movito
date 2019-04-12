@@ -26,7 +26,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"Movie Details";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 100.0;
+//    self.tableView.estimatedRowHeight = 100.0;
 }
 
 #pragma mark - custom methods
@@ -127,18 +127,18 @@
         UILabel* movieDateLabel = [cell viewWithTag:7];
         [movieDateLabel setText:[_movie releaseDate]];
         
-        UITextView* movieOverviewText = [cell viewWithTag:10];
-        [movieOverviewText setText:[_movie overview]];
+        UILabel* movieOverviewLabel = [cell viewWithTag:10];
+        [movieOverviewLabel setText:[_movie overview]];
         
     } else if (_movie.trailers.count > 0)
     {
         if (indexPath.row < (1 + _movie.trailers.count))
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"trailer" forIndexPath:indexPath];
-            UITextView* movieTrailerText = [cell viewWithTag:4];
+            UILabel* movieTrailerLabel = [cell viewWithTag:4];
             Trailer* trailer = _movie.trailers[indexPath.row - 1];
-            [movieTrailerText setText:[trailer name]];
-            [movieTrailerText setUserInteractionEnabled:NO];
+            [movieTrailerLabel setText:[trailer name]];
+//            [movieTrailerLabel setUserInteractionEnabled:NO];
             
             UIImageView* playImage = [cell viewWithTag:3];
             UIImage* tmpImg = [UIImage imageNamed:@"play"];
@@ -150,10 +150,10 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"review" forIndexPath:indexPath];
             [cell setUserInteractionEnabled:NO];
             
-            UITextView* movieReviewText = [cell viewWithTag:1];
+            UILabel* movieReviewContentLabel = [cell viewWithTag:1];
             Review* review = _movie.reviews[indexPath.row - _movie.trailers.count - 1];
-            [movieReviewText setText:[review content]];
-            [movieReviewText setUserInteractionEnabled:NO];
+            [movieReviewContentLabel setText:[review content]];
+            [movieReviewContentLabel setUserInteractionEnabled:NO];
             
             UILabel* movieReviewLabel = [cell viewWithTag:2];
             [movieReviewLabel setText:[review author]];
@@ -191,33 +191,33 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0)
-    {
-        return 554.0;
-    }
-    if (_movie.trailers.count > 0)
-    {
-        if (indexPath.row < (1 + _movie.trailers.count))
-        {
-            return 80.0;
-        } else
-        {
-            return 300.0;
-        }
-    } else if (_movie.reviews.count > 0)
-    {
-        if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
-        {
-            return 300.0;
-        } else
-        {
-            return 80.0;
-        }
-    }
-    return 80.0;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.row == 0)
+//    {
+//        return 554.0;
+//    }
+//    if (_movie.trailers.count > 0)
+//    {
+//        if (indexPath.row < (1 + _movie.trailers.count))
+//        {
+//            return 80.0;
+//        } else
+//        {
+//            return 300.0;
+//        }
+//    } else if (_movie.reviews.count > 0)
+//    {
+//        if (indexPath.row < (1 + _movie.trailers.count + _movie.reviews.count))
+//        {
+//            return 300.0;
+//        } else
+//        {
+//            return 80.0;
+//        }
+//    }
+//    return 80.0;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

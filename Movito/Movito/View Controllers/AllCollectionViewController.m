@@ -14,7 +14,7 @@
 @interface AllCollectionViewController ()
 
 @property BOOL loadFlag;
-@property BOOL favouritesFlag;
+@property BOOL navFlag;
 
 @end
 
@@ -43,14 +43,16 @@
         MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
         if (indexPath == 0)
         {
+            self->_navFlag = NO;
             self->_movies = nil;
             [self.collectionView reloadData];
-            [moviePresenter getMovie:YES];
+            [moviePresenter getMovie:!self->_navFlag];
         } else
         {
+            self->_navFlag = YES;
             self->_movies = nil;
             [self.collectionView reloadData];
-            [moviePresenter getMovie:NO];
+            [moviePresenter getMovie:!self->_navFlag];
         }
         
         [self.collectionView reloadData];
@@ -63,9 +65,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
-    [moviePresenter getMovie:YES];
+    [moviePresenter getMovie:!_navFlag];
     
     [self.collectionView reloadData];
 }
