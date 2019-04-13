@@ -15,6 +15,7 @@
 
 @property BOOL loadFlag;
 @property BOOL navFlag;
+@property CGFloat width;
 
 @end
 
@@ -65,6 +66,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    _width = CGRectGetWidth(self.collectionView.frame)/2;
+    
     MoviesPresenter *moviePresenter = [[MoviesPresenter alloc] initWithMovieView:self];
     [moviePresenter getMovie:!_navFlag];
     
@@ -148,17 +152,10 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"all" forIndexPath:indexPath];
     // Configure the cell
-    UILabel* myLabel = [cell viewWithTag:1];
     UIImageView* myImage = [cell viewWithTag:2];
     Movie* movie = _movies[indexPath.item];
     if(_loadFlag)
-    {
-//        printf("cellForItemAtIndexPath flag: YES\n");
-        NSNumber *i = [NSNumber numberWithDouble:movie.voteAverage];
-        [myLabel setText:[i stringValue]];
-//        [myLabel setText:[[_movies[indexPath.item] objectForKey:@"vote_average"] stringValue]];
-//        printf("cellForItemAtIndexPath label: %s\n", [[myLabel text] UTF8String]);
-        
+    {        
         NSMutableString* tmpStr = [[NSMutableString alloc] initWithString:@"https://image.tmdb.org/t/p/w600_and_h900_bestv2/"];
         //w185
 //        printf("str did it?\n");
@@ -181,6 +178,11 @@
     dvc.movie = _movies[indexPath.item];
     dvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:dvc animated:YES];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(_width, _width*1.2);
 }
 
 /*

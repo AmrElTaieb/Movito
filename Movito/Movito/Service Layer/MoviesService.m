@@ -194,11 +194,11 @@
     if ([_serviceName isEqualToString:@"MovieService"])
     {
         if (_isByPopularity) {
-            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
             printf("check: popularity\n");
         } else
         {
-            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.%20desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
+            tmpStr = @"https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=07c9e79d1ef54c1c2f9b7cb371f51725";
             printf("check: vote_average\n");
         }
     } else if ([_serviceName isEqualToString:@"TrailerService"])

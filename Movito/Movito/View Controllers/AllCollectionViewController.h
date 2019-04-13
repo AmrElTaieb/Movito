@@ -12,7 +12,7 @@
 #import "MoviesPresenter.h"
 #import "../POJO/Review.h"
 
-@interface AllCollectionViewController : UICollectionViewController <IMovieCollectionView>
+@interface AllCollectionViewController : UICollectionViewController <IMovieCollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property NSArray* movies;
 

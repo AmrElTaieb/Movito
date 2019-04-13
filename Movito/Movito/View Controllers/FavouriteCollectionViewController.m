@@ -13,6 +13,8 @@
 
 @interface FavouriteCollectionViewController ()
 
+@property CGFloat width;
+
 @end
 
 @implementation FavouriteCollectionViewController
@@ -36,6 +38,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    _width = CGRectGetWidth(self.collectionView.frame)/2;
+    
     FavouritesPresenter *favouritePresenter = [[FavouritesPresenter alloc] initWithMovieView:self];
     [favouritePresenter getFavourite];
     [self.collectionView reloadData];
@@ -108,19 +113,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fav" forIndexPath:indexPath];
-    
-    //    if(cell == nil)
-    //    {
-    //        cell = [[UICollectionView alloc] in];
-    //    }
-    
     // Configure the cell
-    UILabel* myLabel = [cell viewWithTag:1];
     UIImageView* myImage = [cell viewWithTag:2];
     Movie* movie = _movies[indexPath.item];
-    
-    NSNumber *i = [NSNumber numberWithDouble:movie.voteAverage];
-    [myLabel setText:[i stringValue]];
     
     NSMutableString* tmpStr = [[NSMutableString alloc] initWithString:@"https://image.tmdb.org/t/p/w600_and_h900_bestv2/"];
     //w185
@@ -139,6 +134,11 @@
     dvc.movie = _movies[indexPath.item];
     dvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:dvc animated:YES];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(_width, _width*1.2);
 }
     
 /*
