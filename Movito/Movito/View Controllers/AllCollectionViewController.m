@@ -55,6 +55,7 @@
             [self.collectionView reloadData];
             [moviePresenter getMovie:!self->_navFlag];
         }
+        printf("navigation drop down\n");
         
         [self.collectionView reloadData];
     };
@@ -65,6 +66,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    printf("viewWillAppear\n");
+    
     [super viewWillAppear:animated];
     
     _width = CGRectGetWidth(self.collectionView.frame)/2;
@@ -110,7 +113,8 @@
 {
     printf("hide Loading\n");
     _loadFlag = YES;
-//    Movie* tmpMovie = _movies[2];
+    Movie* tmpMovie = _movies[0];
+    printf("%s\n", [tmpMovie.originalTitle UTF8String]);
 //    if(tmpMovie.reviews.count > 0)
 //    {
 //        Review* tmpReview = tmpMovie.reviews[0];
@@ -154,13 +158,17 @@
     // Configure the cell
     UIImageView* myImage = [cell viewWithTag:2];
     Movie* movie = _movies[indexPath.item];
+//    printf("title: %s\n", [movie.originalTitle UTF8String]);
     if(_loadFlag)
     {        
         NSMutableString* tmpStr = [[NSMutableString alloc] initWithString:@"https://image.tmdb.org/t/p/w600_and_h900_bestv2/"];
         //w185
 //        printf("str did it?\n");
+        if (movie.posterPath != nil && movie.posterPath != (id)[NSNull null])
+        {
+//            printf("not null\n");
             [tmpStr appendString:movie.posterPath];
-//        [tmpStr appendString:[_movies[indexPath.item] objectForKey:@"poster_path"]];
+        }
 //        printf("img did it?\n");
         [myImage sd_setImageWithURL:[NSURL URLWithString:tmpStr] placeholderImage:[UIImage imageNamed:@"wait.png"]];
         

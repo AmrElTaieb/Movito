@@ -118,7 +118,10 @@
         UIImageView* moviePosterImage = [cell viewWithTag:6];
         NSMutableString* tmpStr = [[NSMutableString alloc] initWithString:@"https://image.tmdb.org/t/p/w600_and_h900_bestv2/"];
         //w185
-        [tmpStr appendString:[_movie posterPath]];
+        if (_movie.posterPath != nil && _movie.posterPath != (id)[NSNull null])
+        {
+            [tmpStr appendString:_movie.posterPath];
+        }
         [moviePosterImage sd_setImageWithURL:[NSURL URLWithString:tmpStr] placeholderImage:[UIImage imageNamed:@"wait.png"]];
         
         UILabel* movieTitleLabel = [cell viewWithTag:5];
